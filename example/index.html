@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+
+<head>
+    <script type="text/javascript" src="./../build/browser/main.js"></script>
+
+    <title>Vanilla JS Example</title>
+    <style>
+        #feedback-container {
+            position: absolute;
+            top: 50px;
+            left: 50px;
+            height: 300px;
+            width: 300px;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="feedback-container"></div>
+    <button id="app-button" type="button">Show Feedback </button>
+</body>
+
+<script>
+    const container = document.getElementById('feedback-container')
+    document.getElementById('app-button').onclick = function () {
+        //click me function!
+        console.log("app-button clicked")
+
+        initMyThing(container)
+    }
+</script>
+
+</html>
