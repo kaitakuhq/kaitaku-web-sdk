@@ -1,5 +1,8 @@
 # Kaitaku Web SDK
 
+[![CircleCI](https://circleci.com/gh/kaitakuhq/kaitaku-web-sdk/tree/main.svg?style=svg&circle-token=f9dcf93ba15bc1cb98e17345e39a9fbcce2c3f10)](https://circleci.com/gh/kaitakuhq/kaitaku-web-sdk/tree/main)
+
+[![codecov](https://codecov.io/gh/kaitakuhq/kaitaku-web-sdk/branch/main/graph/badge.svg?token=90U0CUACM1)](https://codecov.io/gh/kaitakuhq/kaitaku-web-sdk)
 
 ## Install
 

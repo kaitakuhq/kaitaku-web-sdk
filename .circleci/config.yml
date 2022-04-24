@@ -1,0 +1,46 @@
+# Javascript Node CircleCI 2.0 configuration file
+#
+# Check https://circleci.com/docs/2.0/language-javascript/ for more details
+#
+version: 2.1
+
+orbs:
+    codecov: codecov/codecov@1.0.4
+
+jobs:
+  build:
+    docker:
+      - image: cimg/openjdk:16.0.2-node
+
+    working_directory: ~/workspace
+
+    steps:
+      - checkout
+
+      # Download and cache dependencies
+      - restore_cache:
+          keys:
+          - v1-dependencies-{{ checksum "package.json" }}
+          # fallback to using the latest cache if no exact match is found
+          - v1-dependencies-
+
+      - run: yarn install
+
+      - save_cache:
+          paths:
+            - node_modules
+          key: v1-dependencies-{{ checksum "package.json" }}
+
+      - run: yarn build:browser
+      - run: yarn build:module
+      
+      # run tests!
+      - run: yarn test --coverage --runInBand --detectOpenHandles --forceExit
+      - codecov/upload:
+          file: './coverage/clover.xml'
+          token: $CODECOV_TOKEN
+
+workflows:
+  build-workflow:
+    jobs:
+      - build
