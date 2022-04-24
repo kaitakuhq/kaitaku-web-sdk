@@ -30,6 +30,14 @@ npm install kaitaku-web-sdk
 
 <!-- Run in Angular // TODO -->
 
+## API Options
+
+| Name | Type | Description |
+|--|--|--|
+| project | String | project ID |
+| token | String | Token for the account | 
+| onError | Function | Called when error occurs.  | 
+
 ## Contributing
 
 
