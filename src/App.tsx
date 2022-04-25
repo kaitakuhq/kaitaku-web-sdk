@@ -2,17 +2,16 @@ import React, { useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import { Kaitaku } from './lib/components/Main';
-import { ErrorCode } from './lib/types/types';
+import { KaitakuError, } from './lib/types/error';
 
 function App() {
   const [showFeedback, setShowFeedback] = useState(false)
-  const onError = (args: ErrorCode) => {
+  const onError = (args: KaitakuError) => {
     console.log("onError", args)
   }
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
         <p>
           Edit files under <code>lib</code> folder and save to reload.
         </p>

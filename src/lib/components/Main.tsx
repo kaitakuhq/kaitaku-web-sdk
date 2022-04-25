@@ -1,21 +1,21 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import {
     QueryClient,
     QueryClientProvider,
 } from 'react-query'
 import { ListCategoryPage } from '../pages/ListCategoryPage';
 import { KaitakuProps } from '../types/types';
+import './../../style/generated.css'
 
-
-// Create a client
 const queryClient = new QueryClient()
 
 export const Kaitaku = (props: KaitakuProps) => {
-
     return (
         <QueryClientProvider client={queryClient}>
-            <ListCategoryPage
-                {...props} />
+            <div className="kt-drop-shadow-xl kt-bg-white kt-rounded-2xl kt-shadow-xl kt-shadow-blue-500/50">
+                <ListCategoryPage
+                    {...props} />
+            </div>
         </QueryClientProvider>
     )
 }

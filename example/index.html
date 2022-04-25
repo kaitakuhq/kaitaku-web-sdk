@@ -28,7 +28,11 @@
         //click me function!
         console.log("app-button clicked")
 
-        initMyThing(container)
+        initMyThing(container, {
+            onError: (err) => {
+                console.error(err)
+            }
+        })
     }
 </script>
 

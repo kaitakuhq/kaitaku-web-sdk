@@ -1,13 +1,13 @@
 
 import { config } from "../../config";
-import { ErrorResponse, HttpResponse } from "../types/types";
+import { NewHttpError } from "../types/error";
 import { snakeToCamel } from "../util/snakeToCamel";
 
 export async function makeRequest<T>(
     path: string,
     token: string,
     params?: RequestInit,
-): Promise<HttpResponse<T>> {
+): Promise<T> {
     const url = config.BASE_API_URI + path
 
     // append token to header
@@ -26,12 +26,19 @@ export async function makeRequest<T>(
 
     return fetch(url, params)
         .then(res => res.json())
-        .then(res => snakeToCamel(res) as HttpResponse<T>)
-        .catch(err => {
-            const response: ErrorResponse = {
-                status: '',
-                code: 'NetworkError',
+        .then(res => {
+            if (res.status !== 'OK') {
+                const err = NewHttpError(res)
+                throw err
             }
-            throw response
+            return res.data as T
+        })
+        // @ts-ignore
+        .then(res => snakeToCamel(res) as T)
+        .catch(err => {
+            const error = NewHttpError({
+                code: 'Not Connected',
+            })
+            throw error
         })
 }

@@ -1,7 +1,8 @@
 
 import { useQuery } from "react-query";
 import { listCategory } from "../api/listCategory";
-import { Category, HttpResponse } from "../types/types";
+import { HTTPError, } from "../types/error";
+import { Category, } from "../types/types";
 
 interface ListCategoryArg {
     projId: string
@@ -9,6 +10,13 @@ interface ListCategoryArg {
 }
 
 export const useListCategory = (arg: ListCategoryArg) => {
-    return useQuery<unknown, HttpResponse<undefined>, HttpResponse<Category[]>>('listCategory',
-        () => listCategory(arg.projId, arg.token))
+    const cacheKey = [
+        'listCategory',
+        arg.projId,
+        arg.token]
+
+    return useQuery<unknown, HTTPError, Category[]>(cacheKey,
+        async () => listCategory(arg.projId, arg.token), {
+        retry: false
+    })
 }

@@ -20,6 +20,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "watch:css:build": "npx tailwindcss -i ./src/style/tailwind-input.css -o ./src/style/generated.css --watch",
     "build:example": "react-scripts build",
     "build:browser": "webpack --config webpack.browser.config.js",
     "build:module": "tsc -p tsconfig.module.json && cp package.json build/module/package.json",
@@ -46,6 +47,8 @@
   },
   "devDependencies": {
     "@types/humps": "^2.0.1",
+    "css-loader": "^6.7.1",
+    "tailwindcss": "^3.0.24",
     "ts-loader": "^9.2.8",
     "webpack-cli": "^4.9.2"
   }

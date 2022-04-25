@@ -63,6 +63,14 @@ yarn start
 
 ```
 
+If you are updating CSS classnames (based on [Tailwind](https://tailwindcss.com/docs/installation)), you need to run this in parallel:
+
+```
+yarn watch:css:build
+```
+
+If changes are made to `src/style/generated.css`, you are responsible for committing that back to the repository along side any changes to the `className`s.
+
 The build will be created from `src/lib` folder.
 
 ### Build
