@@ -17,7 +17,7 @@ export const useListComment = (arg: ListCommentArg) => {
         arg.categoryId,
         arg.token]
 
-    return useQuery<unknown, HTTPError, HttpResponse<Comment[]>>(cacheKey,
+    return useQuery<unknown, HTTPError, Comment[]>(cacheKey,
         () => listComment(
             arg.projectId,
             arg.categoryId,

@@ -4,7 +4,7 @@ jest.mock('../api/listCategory', () => ({
   listComment: jest.fn(),
 }));
 
-import { render, waitFor, } from '@testing-library/react';
+import { fireEvent, render, screen, waitFor, } from '@testing-library/react';
 import { ListCategoryPage } from './ListCategoryPage';
 import { WrappedQueryClient } from '../../testutil/clientProvider';
 import * as category from "../api/listCategory";
@@ -76,7 +76,7 @@ describe('<ListCategoryPage />', () => {
     })
   })
 
-  it('should call get comments if category is selected', async () => {
+  it('should call get comments if category is autoselected', async () => {
     (listCategory as jest.Mock).mockImplementation(() => {
       return new Promise(resolve => {
         resolve(categoryData)
@@ -100,6 +100,37 @@ describe('<ListCategoryPage />', () => {
 
     await waitFor(() => {
       expect(listCommentSpy).toHaveBeenCalledWith('proj-5678', 'category-1', 'token')
+    })
+  })
+
+  it('should call get comments if another category is selected', async () => {
+    (listCategory as jest.Mock).mockImplementation(() => {
+      return new Promise(resolve => {
+        resolve(categoryData)
+      })
+    });
+    (listComment as jest.Mock).mockImplementation(() => {
+      return new Promise(resolve => {
+        resolve(commentData)
+      })
+    });
+
+    const onError = jest.fn()
+    renderPage({
+      onError,
+      projectId: 'proj-56789'
+    })
+
+
+    await waitFor(() => {
+      expect(listCommentSpy).toHaveBeenCalledWith('proj-56789', 'category-1', 'token')
+    })
+
+    const element = await screen.findByTestId('category-category-2')
+    fireEvent.click(element)
+
+    await waitFor(() => {
+      expect(listCommentSpy).toHaveBeenCalledWith('proj-56789', 'category-2', 'token')
     })
   })
 })

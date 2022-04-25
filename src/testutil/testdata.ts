@@ -11,21 +11,27 @@ export const category = [
 
 export const comment = [
     {
+        id: 'comment1',
         comment: 'Navigation is not usable'
     },
     {
+        id: 'comment2',
         comment: 'Set the destination on the map'
     },
     {
+        id: 'comment3',
         comment: 'Voice announcements are difficult to hear'
     },
     {
+        id: 'comment4',
         comment: 'Navigation is not usable'
     },
     {
+        id: 'comment5',
         comment: 'Set the destination on the map'
     },
     {
+        id: 'comment6',
         comment: 'Voice announcements are difficult to hear'
     },
 ]
