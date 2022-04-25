@@ -1,29 +1,18 @@
 import { ReactChild, ReactFragment, ReactPortal } from "react";
+import { KaitakuError } from "./error";
 
 export interface KaitakuProps {
+    onError: (error: KaitakuError) => void
     projectId: string
-    onError: (error: ErrorCode) => void
     token: string
 }
 
-export interface ErrorCode extends Error {
-    customCode: string
-    customMsg: string
-}
-
-
 export type ReactNode = ReactChild | ReactFragment | ReactPortal | boolean | null | undefined;
 
-export interface HttpResponse<T> extends ErrorResponse {
-    data: T
-    status: string
-    code?: string
-    error?: string
-}
-
-export type ErrorResponse = {
-    status: string
-    code?: string
+export interface HttpResponse<T> {
+    data?: T
+    status?: string
+    code: string
     error?: string
 }
 
@@ -37,4 +26,14 @@ export interface Category {
     id: string
     name: string
     state: ProjectState
+}
+
+export interface Comment {
+    categoryId: string
+    comment: string
+    createdAt: number
+    id: string
+    userId: string
+    userVoted: boolean
+    votes: number
 }

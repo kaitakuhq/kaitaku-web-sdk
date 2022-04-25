@@ -4,6 +4,6 @@ import { makeRequest } from "./common"
 export const listCategory = (
     projectId: string,
     token: string,
-): Promise<HttpResponse<Category[]>> => {
+): Promise<Category[]> => {
     return makeRequest<Category[]>(`/project/${projectId}/category`, token)
 }
