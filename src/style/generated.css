@@ -466,6 +466,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   --tw-backdrop-sepia:  ;
 }
 
+.kt-mb-4 {
+  margin-bottom: 1rem;
+}
+
 .kt-flex {
   display: flex;
 }
@@ -478,8 +482,16 @@ Ensure the default browser behavior of the `hidden` attribute.
   height: 100%;
 }
 
-.kt-h-8 {
-  height: 2rem;
+.kt-h-6 {
+  height: 1.5rem;
+}
+
+.kt-h-12 {
+  height: 3rem;
+}
+
+.kt-h-24 {
+  height: 6rem;
 }
 
 .kt-max-h-\[300px\] {
@@ -490,12 +502,28 @@ Ensure the default browser behavior of the `hidden` attribute.
   width: 100%;
 }
 
-.kt-w-8 {
-  width: 2rem;
+.kt-w-6 {
+  width: 1.5rem;
+}
+
+.kt-w-12 {
+  width: 3rem;
+}
+
+.kt-w-24 {
+  width: 6rem;
+}
+
+.kt-w-\[400px\] {
+  width: 400px;
 }
 
 .kt-max-w-\[400px\] {
   max-width: 400px;
+}
+
+.kt-flex-1 {
+  flex: 1 1 0%;
 }
 
 .kt-cursor-pointer {
@@ -504,6 +532,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .kt-grid-flow-col {
   grid-auto-flow: column;
+}
+
+.kt-flex-col {
+  flex-direction: column;
 }
 
 .kt-items-center {
@@ -561,12 +593,16 @@ Ensure the default browser behavior of the `hidden` attribute.
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 
-.kt-fill-gray-400 {
-  fill: #9ca3af;
+.kt-stroke-gray-800 {
+  stroke: #1f2937;
 }
 
 .kt-p-2 {
   padding: 0.5rem;
+}
+
+.kt-p-12 {
+  padding: 3rem;
 }
 
 .kt-py-4 {
@@ -600,6 +636,11 @@ Ensure the default browser behavior of the `hidden` attribute.
   line-height: 1.5rem;
 }
 
+.kt-text-xl {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+}
+
 .kt-text-gray-400 {
   --tw-text-opacity: 1;
   color: rgb(156 163 175 / var(--tw-text-opacity));
@@ -629,10 +670,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .hover\:kt-border-b-2:hover {
   border-bottom-width: 2px;
-}
-
-.hover\:kt-fill-blue-500:hover {
-  fill: #3b82f6;
 }
 
 .hover\:kt-text-gray-900:hover {

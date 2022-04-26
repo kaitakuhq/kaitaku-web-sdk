@@ -56,6 +56,41 @@ describe('<ListCategoryPage />', () => {
     })
   });
 
+  it("throws if project id or token are not provided", async () => {
+    expect(() => renderPage({
+      projectId: '',
+    }))
+      .toThrow("`projectId` and `token` are required");
+
+    expect(() => renderPage({
+      token: '',
+    }))
+      .toThrow("`projectId` and `token` are required");
+  });
+
+  it('should show project not setup if no categories are retrieved', async () => {
+    (listCategory as jest.Mock).mockImplementation(() => {
+      return new Promise(resolve => {
+        resolve([])
+      })
+    });
+    (listComment as jest.Mock).mockImplementation(() => {
+      return new Promise(resolve => {
+        resolve([])
+      })
+    });
+
+    renderPage({
+      projectId: 'proj-4156789'
+    })
+
+    const element = await screen.findByTestId('project-not-setup')
+
+    await waitFor(() => {
+      expect(element).toBeVisible()
+    })
+  })
+
   it('should return onError if unauthorized', async () => {
     (listCategory as jest.Mock).mockImplementation(() => {
       return new Promise(() => {
@@ -73,6 +108,12 @@ describe('<ListCategoryPage />', () => {
       expect(onError).toHaveBeenCalledWith(expect.objectContaining({
         code: KaitakuErrorCode.Unauthorized,
       }))
+    })
+
+    const element = await screen.findByTestId('error-occurred')
+
+    await waitFor(() => {
+      expect(element).toBeVisible()
     })
   })
 

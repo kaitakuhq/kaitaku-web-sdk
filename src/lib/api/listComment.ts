@@ -6,5 +6,8 @@ export const listComment = (
     categoryId: string,
     token: string,
 ): Promise<Comment[]> => {
+    if (!projectId || !categoryId || !token) {
+        return new Promise(resolve => resolve([]))
+    }
     return makeRequest<Comment[]>(`/project/${projectId}/category/${categoryId}/comment`, token)
 }

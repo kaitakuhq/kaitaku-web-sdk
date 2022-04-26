@@ -2,7 +2,7 @@
 import { useQuery } from "react-query";
 import { listComment } from "../api/listComment";
 import { HTTPError } from "../types/error";
-import { Comment, HttpResponse } from "../types/types";
+import { Comment, } from "../types/types";
 
 interface ListCommentArg {
     categoryId: string
@@ -22,5 +22,7 @@ export const useListComment = (arg: ListCommentArg) => {
             arg.projectId,
             arg.categoryId,
             arg.token,
-        ))
+        ), {
+        retry: false
+    })
 }
