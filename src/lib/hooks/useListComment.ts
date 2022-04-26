@@ -8,6 +8,7 @@ interface ListCommentArg {
     categoryId: string
     projectId: string
     token: string
+    userId: string
 }
 
 export const useListComment = (arg: ListCommentArg) => {
@@ -15,12 +16,14 @@ export const useListComment = (arg: ListCommentArg) => {
         'listComment',
         arg.projectId,
         arg.categoryId,
-        arg.token]
+        arg.token,
+        arg.userId,]
 
     return useQuery<unknown, HTTPError, Comment[]>(cacheKey,
         () => listComment(
             arg.projectId,
             arg.categoryId,
+            arg.userId,
             arg.token,
         ), {
         retry: false

@@ -4,6 +4,10 @@ import './App.css';
 import { Kaitaku } from './lib/components/Main';
 import { KaitakuError, } from './lib/types/error';
 
+const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiWmdOS0NBalVIbERoak85bms1bW4iLCJjcmVhdGVkX2F0IjoiMjAyMi0wNC0xN1QxODo1MTo1Ni41OTI2OCswOTowMCJ9.lL2kmWdoAhCfZOe1r7yl-7k4n-5EVdcwj6QhuB-tEek'
+const projectId = 'mVhuSeRl9UXjJevV0sTy'
+const user1 = 'user1'
+
 function App() {
   const [showFeedback, setShowFeedback] = useState(false)
   const onError = (args: KaitakuError) => {
@@ -25,9 +29,11 @@ function App() {
         {
           showFeedback && (
             <Kaitaku
-              projectId={'proj-1234'}
+              projectId={projectId}
               onError={onError}
-              token={'token'} />
+              token={token}
+              userId={user1}
+            />
           )
         }
       </header>

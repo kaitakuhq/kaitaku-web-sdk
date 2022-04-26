@@ -1,5 +1,5 @@
 import React, { useEffect, useState, } from 'react';
-import { useListCategory } from '../hooks/useListCategory';
+import { useGetProject } from '../hooks/useGetProject';
 import { useListComment } from '../hooks/useListComment';
 import { NewKaitakuError } from '../types/error';
 import { Category, KaitakuProps } from '../types/types';
@@ -14,14 +14,14 @@ export const ListCategoryPage = (
         error: listCategoryError,
         status,
         isLoading,
-    } = useListCategory({
+    } = useGetProject({
         token: props.token,
         projId: props.projectId,
     })
 
     const [selectedCategory, setSelectedCategory] = useState<Category | null>(null)
 
-    const categoryNotSetup = status === 'success' && (categoryList?.length || []) < 1
+    const categoryNotSetup = status === 'success' && (categoryList?.category.length || []) < 1
 
     const onCategoryClick = (category: Category) => {
         setSelectedCategory(category)
@@ -34,24 +34,25 @@ export const ListCategoryPage = (
         categoryId: selectedCategory?.id || '',
         projectId: props.projectId,
         token: props.token,
+        userId: props.userId,
     })
 
     // did mount
     useEffect(() => {
-        if (!props.projectId || !props.token) {
-            throw new Error("`projectId` and `token` are required")
+        if (!props.projectId || !props.token || !props.userId) {
+            throw new Error("`projectId`, `token`, and `userId` are required")
         }
     }, [])
 
     // auto select first category
     useEffect(() => {
-        if ((categoryList?.length || 0) < 1) {
+        if ((categoryList?.category.length || 0) < 1) {
             return
         }
         if (selectedCategory) {
             return
         }
-        setSelectedCategory(categoryList![0])
+        setSelectedCategory(categoryList?.category[0]!)
     }, [categoryList])
 
     const error = listCategoryError || listCommentError
@@ -106,7 +107,7 @@ export const ListCategoryPage = (
                                 <>
                                     <div className="kt-grid kt-grid-flow-col kt-overflow-x-auto kt-pb-2 kt-border-b-2 kt-border-slate-100">
                                         {
-                                            (categoryList || []).map((c) => (
+                                            (categoryList?.category || []).map((c) => (
                                                 <div className="kt-p-2 kt-cursor-pointer justify-center items-center"
                                                     data-testid={`category-${c.id}`}
                                                     key={c.id}
