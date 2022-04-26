@@ -37,3 +37,11 @@ export interface Comment {
     userVoted: boolean
     votes: number
 }
+
+export interface Project {
+    created: number
+    id: string
+    name: string
+    ownerId: string
+    category: Category[]
+}
