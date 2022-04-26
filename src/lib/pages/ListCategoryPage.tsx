@@ -36,6 +36,13 @@ export const ListCategoryPage = (
         token: props.token,
     })
 
+    // did mount
+    useEffect(() => {
+        if (!props.projectId || !props.token) {
+            throw new Error("`projectId` and `token` are required")
+        }
+    }, [])
+
     // auto select first category
     useEffect(() => {
         if ((categoryList?.length || 0) < 1) {
