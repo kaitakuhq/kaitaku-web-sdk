@@ -37,9 +37,10 @@ npm install kaitaku-web-sdk
 
 | Name | Type | Description |
 |--|--|--|
+| onError | Function | Called when error occurs.  | 
 | project | String | project ID |
 | token | String | Token for the account | 
-| onError | Function | Called when error occurs.  | 
+| userId | String | Unique user id | 
 
 ## Contributing
 

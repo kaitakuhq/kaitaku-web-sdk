@@ -5,6 +5,7 @@ export interface KaitakuProps {
     onError: (error: KaitakuError) => void
     projectId: string
     token: string
+    userId: string
 }
 
 export type ReactNode = ReactChild | ReactFragment | ReactPortal | boolean | null | undefined;

@@ -28,6 +28,7 @@ describe('<ListCategoryPage />', () => {
       projectId: 'proj-1234',
       onError: () => { },
       token: 'token',
+      userId: 'user-1234',
       ...override,
     }
     return render(
@@ -57,15 +58,22 @@ describe('<ListCategoryPage />', () => {
   });
 
   it("throws if project id or token are not provided", async () => {
-    expect(() => renderPage({
-      projectId: '',
-    }))
-      .toThrow("`projectId` and `token` are required");
+    const msg = '`projectId`, `token`, and `userId` are required'
 
-    expect(() => renderPage({
-      token: '',
-    }))
-      .toThrow("`projectId` and `token` are required");
+    const testTable = [
+      {
+        projectId: '',
+      }, {
+        token: '',
+      }, {
+        userId: '',
+      }
+    ]
+
+    testTable.forEach(t => {
+      expect(() => renderPage(t))
+        .toThrow(msg);
+    })
   });
 
   it('should show project not setup if no categories are retrieved', async () => {
@@ -144,7 +152,7 @@ describe('<ListCategoryPage />', () => {
     })
 
     await waitFor(() => {
-      expect(listCommentSpy).toHaveBeenCalledWith('proj-5678', 'category-1', 'token')
+      expect(listCommentSpy).toHaveBeenCalledWith('proj-5678', 'category-1', 'user-1234', 'token')
     })
   })
 
@@ -170,14 +178,14 @@ describe('<ListCategoryPage />', () => {
 
 
     await waitFor(() => {
-      expect(listCommentSpy).toHaveBeenCalledWith('proj-56789', 'category-1', 'token')
+      expect(listCommentSpy).toHaveBeenCalledWith('proj-56789', 'category-1', 'user-1234', 'token')
     })
 
     const element = await screen.findByTestId('category-category-2')
     fireEvent.click(element)
 
     await waitFor(() => {
-      expect(listCommentSpy).toHaveBeenCalledWith('proj-56789', 'category-2', 'token')
+      expect(listCommentSpy).toHaveBeenCalledWith('proj-56789', 'category-2', 'user-1234', 'token')
     })
   })
 })

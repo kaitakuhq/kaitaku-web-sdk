@@ -34,12 +34,13 @@ export const ListCategoryPage = (
         categoryId: selectedCategory?.id || '',
         projectId: props.projectId,
         token: props.token,
+        userId: props.userId,
     })
 
     // did mount
     useEffect(() => {
-        if (!props.projectId || !props.token) {
-            throw new Error("`projectId` and `token` are required")
+        if (!props.projectId || !props.token || !props.userId) {
+            throw new Error("`projectId`, `token`, and `userId` are required")
         }
     }, [])
 
