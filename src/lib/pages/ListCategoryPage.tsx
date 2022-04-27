@@ -1,4 +1,5 @@
 import React, { useEffect, useState, } from 'react';
+import { Button } from '../components/Button';
 import { useGetProject } from '../hooks/useGetProject';
 import { useListComment } from '../hooks/useListComment';
 import { NewKaitakuError } from '../types/error';
@@ -6,8 +7,12 @@ import { Category, KaitakuProps } from '../types/types';
 import empty from './../icons/empty.svg'
 import warning from './../icons/warning.svg'
 
+interface Props extends KaitakuProps {
+    onAddFeedback: (category: Category | null) => void
+}
+
 export const ListCategoryPage = (
-    props: KaitakuProps,
+    props: Props,
 ) => {
     const {
         data: categoryList,
@@ -67,6 +72,10 @@ export const ListCategoryPage = (
         )
     }, [error])
 
+    const onAddFeedback = () => {
+        props.onAddFeedback(selectedCategory)
+    }
+
     const renderError = () => {
         return (
             <div className="kt-p-12 kt-flex kt-flex-col kt-items-center"
@@ -93,54 +102,62 @@ export const ListCategoryPage = (
             </div>
         )
     }
+
+    if (error) {
+        return renderError()
+    }
+
+    if (categoryNotSetup === true) {
+        return renderNoProjectSetup()
+    }
+
     return (
-        <div className="kt-p-2 kt-py-4 kt-max-w-[400px] kt-w-full ">
-            {
-                error
-                    ? renderError()
-                    : (
-                        categoryNotSetup === true
-                            ? (
-                                renderNoProjectSetup()
-                            )
-                            : (
-                                <>
-                                    <div className="kt-grid kt-grid-flow-col kt-overflow-x-auto kt-pb-2 kt-border-b-2 kt-border-slate-100">
-                                        {
-                                            (categoryList?.category || []).map((c) => (
-                                                <div className="kt-p-2 kt-cursor-pointer justify-center items-center"
-                                                    data-testid={`category-${c.id}`}
-                                                    key={c.id}
-                                                    // @ts-ignore
-                                                    onClick={() => onCategoryClick(c)}>
-                                                    <span className="kt-whitespace-nowrap kt-align-baseline kt-text-center hover:kt-border-b-2 kt-border-blue-500 kt-text-gray-400 hover:kt-text-gray-900 kt-text-lg">{c.name}</span>
-                                                </div>
-                                            ))
-                                        }
-                                    </div>
-                                    <div className="kt-overflow-y-auto kt-h-full kt-max-h-[300px] ">
-                                        {
-                                            (comments || []).map((c) => (
-                                                <div
-                                                    className="kt-border-b-2 kt-border-slate-100"
-                                                    key={c.id} >
-                                                    <div className="kt-p-2 kt-text-left kt-flex kt-items-center kt-gap-2 border-indigo-500 kt-rounded-xl kt-cursor-pointer">
-                                                        <div className="kt-grid kt-justify-center kt-gap-0">
-                                                            <svg className="kt-stroke-gray-800 w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"></path></svg>
+        <>
+            <div className="kt-grid kt-grid-flow-col kt-overflow-x-auto kt-pb-2 kt-border-b-2 kt-border-slate-100">
+                {
+                    (categoryList?.category || []).map((c) => (
+                        <div className="kt-p-2 kt-cursor-pointer justify-center items-center"
+                            data-testid={`category-${c.id}`}
+                            key={c.id}
+                            // @ts-ignore
+                            onClick={() => onCategoryClick(c)}>
+                            <span className="kt-whitespace-nowrap kt-align-baseline kt-text-center hover:kt-border-b-2 kt-border-blue-500 kt-text-gray-400 hover:kt-text-gray-900 kt-text-lg">{c.name}</span>
+                        </div>
+                    ))
+                }
+            </div>
+            <div className="kt-overflow-y-auto kt-h-full kt-max-h-[300px] ">
+                {
+                    (comments || []).map((c) => (
+                        <div
+                            className="kt-border-b-2 kt-border-slate-100"
+                            key={c.id} >
+                            <div className="kt-p-2 kt-text-left kt-flex kt-items-center kt-gap-2 border-indigo-500 kt-rounded-xl kt-cursor-pointer">
+                                <div className="kt-grid kt-justify-center kt-gap-0">
+                                    <svg className="kt-stroke-gray-800 w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" stroke-width="2" d="M5 15l7-7 7 7"></path></svg>
 
-                                                            <span className="kt-text-center kt-text-gray-600 kt-text-base">3</span>
-                                                        </div>
-                                                        <span className="kt-text-gray-400 hover:kt-text-gray-600 kt-text-base">{c.comment}</span>
-                                                    </div>
-                                                </div>
-                                            ))
-                                        }
-                                    </div>
-                                </>
-                            )
+                                    <span className="kt-text-center kt-text-gray-600 kt-text-base">{c.votes}</span>
+                                </div>
+                                <span className="kt-text-gray-400 hover:kt-text-gray-600 kt-text-base">{c.comment}</span>
+                            </div>
+                        </div>
+                    ))
+                }
+                {
+                    ((comments || []).length < 1) && (
+                        <div>
+                            <div className="kt-p-2 kt-text-center">
+                                <span className="kt-text-gray-300 kt-text-sm">No Comments for {selectedCategory?.name}</span>
+                            </div>
+                        </div>
                     )
-            }
+                }
 
-        </div >
+                <Button
+                    onClick={onAddFeedback}
+                    title={'Add Feedback'}
+                    type={'primary'} />
+            </div>
+        </>
     )
 }

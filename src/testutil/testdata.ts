@@ -1,11 +1,17 @@
+import { ProjectState } from "../lib/types/types"
+
 export const category = [
     {
         id: 'category-1',
-        name: 'Feature Request'
+        name: 'Feature Request',
+        description: 'To request a new feature',
+        state: ProjectState.active
     },
     {
+        description: 'To tell us about what frustrates you',
         id: 'category-2',
-        name: 'Frustration'
+        name: 'Frustration',
+        state: ProjectState.active
     },
 ]
 
