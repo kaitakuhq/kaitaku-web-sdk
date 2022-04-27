@@ -26,6 +26,7 @@ describe('<ListCategoryPage />', () => {
   const renderPage = (override?: Partial<KaitakuProps>) => {
     const props = {
       projectId: 'proj-1234',
+      onAddFeedback: () => { },
       onError: () => { },
       token: 'token',
       userId: 'user-1234',
