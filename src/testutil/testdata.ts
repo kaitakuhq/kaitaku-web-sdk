@@ -1,4 +1,4 @@
-import { ProjectState } from "../lib/types/types"
+import { KaitakuProps, ProjectState } from "../lib/types/types"
 
 export const category = [
     {
@@ -18,26 +18,27 @@ export const category = [
 export const comment = [
     {
         id: 'comment1',
-        comment: 'Navigation is not usable'
+        comment: 'Navigation is not usable',
+        categoryId: 'category-1234',
+        createdAt: 1234,
+        userId: 'user-1234',
+        userVoted: true,
+        votes: 5,
     },
     {
         id: 'comment2',
-        comment: 'Set the destination on the map'
-    },
-    {
-        id: 'comment3',
-        comment: 'Voice announcements are difficult to hear'
-    },
-    {
-        id: 'comment4',
-        comment: 'Navigation is not usable'
-    },
-    {
-        id: 'comment5',
-        comment: 'Set the destination on the map'
-    },
-    {
-        id: 'comment6',
-        comment: 'Voice announcements are difficult to hear'
+        comment: 'Set the destination on the map',
+        categoryId: 'category-1234',
+        createdAt: 1234,
+        userId: 'user-1234',
+        userVoted: true,
+        votes: 5,
     },
 ]
+
+export const kaitakuProps: KaitakuProps = {
+    onError: () => { },
+    projectId: 'proj-1234',
+    token: 'token',
+    userId: 'user-1234',
+}
