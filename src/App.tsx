@@ -28,12 +28,14 @@ function App() {
         </button>
         {
           showFeedback && (
-            <Kaitaku
-              projectId={projectId}
-              onError={onError}
-              token={token}
-              userId={user1}
-            />
+            <div style={{ width: '400px', height: '400px' }}>
+              <Kaitaku
+                projectId={projectId}
+                onError={onError}
+                token={token}
+                userId={user1}
+              />
+            </div>
           )
         }
       </header>

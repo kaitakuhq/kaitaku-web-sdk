@@ -1,5 +1,6 @@
 import React, { useEffect, useState, } from 'react';
 import { Button } from '../components/Button';
+import { Comment } from '../components/Comment';
 import { useGetProject } from '../hooks/useGetProject';
 import { useListComment } from '../hooks/useListComment';
 import { NewKaitakuError } from '../types/error';
@@ -128,20 +129,7 @@ export const ListCategoryPage = (
             </div>
             <div className="kt-overflow-y-auto kt-h-full kt-max-h-[300px] ">
                 {
-                    (comments || []).map((c) => (
-                        <div
-                            className="kt-border-b-2 kt-border-slate-100"
-                            key={c.id} >
-                            <div className="kt-p-2 kt-text-left kt-flex kt-items-center kt-gap-2 border-indigo-500 kt-rounded-xl kt-cursor-pointer">
-                                <div className="kt-grid kt-justify-center kt-gap-0">
-                                    <svg className="kt-stroke-gray-800 w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" stroke-width="2" d="M5 15l7-7 7 7"></path></svg>
-
-                                    <span className="kt-text-center kt-text-gray-600 kt-text-base">{c.votes}</span>
-                                </div>
-                                <span className="kt-text-gray-400 hover:kt-text-gray-600 kt-text-base">{c.comment}</span>
-                            </div>
-                        </div>
-                    ))
+                    (comments || []).map((c) => <Comment {...props} key={c.id} comment={c} />)
                 }
                 {
                     ((comments || []).length < 1) && (
