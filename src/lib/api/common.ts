@@ -36,9 +36,6 @@ export async function makeRequest<T>(
         // @ts-ignore
         .then(res => snakeToCamel(res) as T)
         .catch(err => {
-            if (err.appStatusCode) {
-                throw err
-            }
             throw err
         })
 }
