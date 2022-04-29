@@ -1,4 +1,5 @@
-import { Comment, HttpResponse } from "../types/types"
+
+import { Comment, } from "../types/types"
 import { makeRequest } from "./common"
 
 export const listComment = (

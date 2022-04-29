@@ -53,6 +53,9 @@ describe('<ListCategoryPage />', () => {
   it("Renders and get category list", async () => {
     renderPage()
 
+    const element = await screen.findByTestId('spinner')
+    expect(element).not.toBeNull()
+
     await waitFor(() => {
       expect(getProjectSpy).toHaveBeenCalledWith('proj-1234', 'token')
     })

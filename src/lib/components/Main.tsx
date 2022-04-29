@@ -14,7 +14,7 @@ export const Kaitaku = (props: KaitakuProps) => {
     const [showAddFeedback, setShowAddFeedback] = useState<Category | null>(null)
     return (
         <QueryClientProvider client={queryClient}>
-            <div className="kt-drop-shadow-md kt-bg-white kt-rounded-2xl kt-shadow-md">
+            <div className="kt-drop-shadow-md kt-bg-white kt-rounded-2xl kt-shadow-md kt-h-full kt-flex">
                 <div className="kt-p-2 kt-py-4 kt-max-w-[400px] kt-w-full ">
                     {
                         showAddFeedback
