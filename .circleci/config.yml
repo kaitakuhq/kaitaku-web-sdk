@@ -53,3 +53,4 @@ workflows:
   build-workflow:
     jobs:
       - build
+      - publish
