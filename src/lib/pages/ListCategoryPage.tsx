@@ -1,15 +1,17 @@
 import React, { useEffect, useState, } from 'react';
 import { Button } from '../components/Button';
+import { Category } from '../components/Category';
 import { Comment } from '../components/Comment';
+import { Spinner } from '../components/Spinner';
 import { useGetProject } from '../hooks/useGetProject';
 import { useListComment } from '../hooks/useListComment';
 import { NewKaitakuError } from '../types/error';
-import { Category, KaitakuProps } from '../types/types';
+import { Category as CategoryProps, KaitakuProps } from '../types/types';
 import empty from './../icons/empty.svg'
 import warning from './../icons/warning.svg'
 
 interface Props extends KaitakuProps {
-    onAddFeedback: (category: Category | null) => void
+    onAddFeedback: (category: CategoryProps | null) => void
 }
 
 export const ListCategoryPage = (
@@ -19,23 +21,24 @@ export const ListCategoryPage = (
         data: categoryList,
         error: listCategoryError,
         status,
-        isLoading,
+        isLoading: isLoadingProject,
     } = useGetProject({
         token: props.token,
         projId: props.projectId,
     })
 
-    const [selectedCategory, setSelectedCategory] = useState<Category | null>(null)
+    const [selectedCategory, setSelectedCategory] = useState<CategoryProps | null>(null)
 
     const categoryNotSetup = status === 'success' && (categoryList?.category.length || []) < 1
 
-    const onCategoryClick = (category: Category) => {
+    const onCategoryClick = (category: CategoryProps) => {
         setSelectedCategory(category)
     }
 
     const {
         data: comments,
         error: listCommentError,
+        isLoading: isLoadingComments,
     } = useListComment({
         categoryId: selectedCategory?.id || '',
         projectId: props.projectId,
@@ -79,7 +82,7 @@ export const ListCategoryPage = (
 
     const renderError = () => {
         return (
-            <div className="kt-p-12 kt-flex kt-flex-col kt-items-center"
+            <div className="kt-p-12 kt-flex kt-flex-col kt-items-center kt-h-full kt-justify-center"
                 data-testid={`error-occurred`}>
                 <span className="kt-w-24 kt-h-24 kt-mb-4">
                     <img src={warning} alt="No Data" />
@@ -92,7 +95,7 @@ export const ListCategoryPage = (
     }
     const renderNoProjectSetup = () => {
         return (
-            <div className="kt-p-12 kt-flex kt-flex-col kt-items-center"
+            <div className="kt-p-12 kt-flex kt-flex-col kt-items-center kt-h-full kt-justify-center"
                 data-testid={`project-not-setup`}>
                 <span className="kt-w-24 kt-h-24 kt-mb-4">
                     <img src={empty} alt="No Data" />
@@ -102,6 +105,10 @@ export const ListCategoryPage = (
                 </span>
             </div>
         )
+    }
+
+    if (isLoadingProject) {
+        return <Spinner />
     }
 
     if (error) {
@@ -117,35 +124,46 @@ export const ListCategoryPage = (
             <div className="kt-grid kt-grid-flow-col kt-overflow-x-auto kt-pb-2 kt-border-b-2 kt-border-slate-100">
                 {
                     (categoryList?.category || []).map((c) => (
-                        <div className="kt-p-2 kt-cursor-pointer justify-center items-center"
-                            data-testid={`category-${c.id}`}
-                            key={c.id}
-                            // @ts-ignore
-                            onClick={() => onCategoryClick(c)}>
-                            <span className="kt-whitespace-nowrap kt-align-baseline kt-text-center hover:kt-border-b-2 kt-border-blue-500 kt-text-gray-400 hover:kt-text-gray-900 kt-text-lg">{c.name}</span>
-                        </div>
+                        <Category
+                            category={c}
+                            onCategoryClick={onCategoryClick}
+                            selectedCategory={selectedCategory} />
+                        // <div className="kt-p-2 kt-cursor-pointer justify-center items-center"
+                        //     data-testid={`category-${c.id}`}
+                        //     key={c.id}
+                        //     // @ts-ignore
+                        //     onClick={() => onCategoryClick(c)}>
+                        //     <span className="kt-whitespace-nowrap kt-align-baseline kt-text-center hover:kt-border-b-2 kt-border-blue-500 kt-text-gray-400 hover:kt-text-gray-900 kt-text-lg">{c.name}</span>
+                        // </div>
                     ))
                 }
             </div>
-            <div className="kt-overflow-y-auto kt-h-full kt-max-h-[300px] ">
-                {
-                    (comments || []).map((c) => <Comment {...props} key={c.id} comment={c} />)
-                }
-                {
-                    ((comments || []).length < 1) && (
-                        <div>
-                            <div className="kt-p-2 kt-text-center">
-                                <span className="kt-text-gray-300 kt-text-sm">No Comments for {selectedCategory?.name}</span>
-                            </div>
+            {
+                isLoadingComments
+                    ? <Spinner />
+                    : (
+
+                        <div className="kt-overflow-y-auto kt-h-full kt-max-h-[300px] ">
+                            {
+                                (comments || []).map((c) => <Comment {...props} key={c.id} comment={c} />)
+                            }
+                            {
+                                ((comments || []).length < 1) && (
+                                    <div>
+                                        <div className="kt-p-2 kt-text-center">
+                                            <span className="kt-text-gray-300 kt-text-sm">No Comments for {selectedCategory?.name}</span>
+                                        </div>
+                                    </div>
+                                )
+                            }
+
+                            <Button
+                                onClick={onAddFeedback}
+                                title={'Add New Feedback'}
+                                type={'primary'} />
                         </div>
                     )
-                }
-
-                <Button
-                    onClick={onAddFeedback}
-                    title={'Add Feedback'}
-                    type={'primary'} />
-            </div>
+            }
         </>
     )
 }

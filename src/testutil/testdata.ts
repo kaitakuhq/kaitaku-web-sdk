@@ -1,4 +1,12 @@
-import { KaitakuProps, ProjectState } from "../lib/types/types"
+import { KaitakuProps, Project, ProjectState } from "../lib/types/types"
+
+export const project: Project = {
+    category: [],
+    created: 1,
+    id: '1',
+    name: 'Project A',
+    ownerId: '1234',
+}
 
 export const category = [
     {
@@ -31,8 +39,8 @@ export const comment = [
         categoryId: 'category-1234',
         createdAt: 1234,
         userId: 'user-1234',
-        userVoted: true,
-        votes: 5,
+        userVoted: false,
+        votes: 2,
     },
 ]
 

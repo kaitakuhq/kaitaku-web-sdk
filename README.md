@@ -23,7 +23,62 @@ To implement this as a module, run:
 npm install kaitaku-web-sdk
 ```
 
+### Setup a container
 
+The SDK will render in a HTML element. This container must have a specified height and width to show the elements properly. We recommend a minimum height of 400px and minimum width of 400px.
+
+<details>
+ <summary>VanillaJS</summary>
+
+```
+<!doctype html>
+<html>
+
+<head>
+    <script type="text/javascript" src="./../build/browser/main.js"></script>
+
+    <title>Vanilla JS Example</title>
+    <style>
+        #feedback-container {
+            position: absolute;
+            top: 50px;
+            left: 50px;
+            height: 400px;
+            width: 400px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="feedback-container"></div>
+    <button id="app-button" type="button">Show Feedback </button>
+</body>
+
+<script>
+    const container = document.getElementById('feedback-container')
+    const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiWmdOS0NBalVIbERoak85bms1bW4iLCJjcmVhdGVkX2F0IjoiMjAyMi0wNC0xN1QxODo1MTo1Ni41OTI2OCswOTowMCJ9.lL2kmWdoAhCfZOe1r7yl-7k4n-5EVdcwj6QhuB-tEek'
+    const projectId = 'mVhuSeRl9UXjJevV0sTy'
+    const user1 = 'user1'
+
+    document.getElementById('app-button').onclick = function () {
+        //click me function!
+        console.log("app-button clicked")
+
+        initMyThing(container, {
+            onError: (err) => {
+                console.error(err)
+            },
+            projectId: projectId,
+            token: token,
+            userId: user1,
+        })
+    }
+</script>
+
+</html>
+```
+
+</details>
 <!-- ### Load this SDK as a global variable on a browser -->
 
 
