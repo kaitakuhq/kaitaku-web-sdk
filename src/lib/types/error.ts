@@ -20,6 +20,27 @@ export interface HTTPError extends Error {
     responseError?: string
 }
 
+export const fetchErrorToHttpError = (err?: Error): HTTPError => {
+
+    let appStatusCode
+
+    switch (err?.message) {
+        case 'Failed to fetch':
+            appStatusCode = HTTPErrorStatusCode.NotConnected
+            break
+    }
+    if (!err) {
+        err = new Error()
+    }
+
+    return {
+        ...err,
+        appStatusCode,
+        responseCode: '',
+        responseError: '',
+    }
+}
+
 export const NewHttpError = (resp: HttpResponse<undefined>): HTTPError => {
     const err = new Error()
     let appStatusCode

@@ -1,6 +1,6 @@
 
 import { config } from "../../config";
-import { NewHttpError } from "../types/error";
+import { fetchErrorToHttpError, NewHttpError } from "../types/error";
 import { snakeToCamel } from "../util/snakeToCamel";
 
 export async function makeRequest<T>(
@@ -36,6 +36,10 @@ export async function makeRequest<T>(
         // @ts-ignore
         .then(res => snakeToCamel(res) as T)
         .catch(err => {
-            throw err
+            if (err.appStatusCode) {
+                // already converted & thrown in the few lines above
+                throw err
+            }
+            throw fetchErrorToHttpError(err)
         })
 }
