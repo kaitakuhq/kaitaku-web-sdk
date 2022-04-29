@@ -62,10 +62,10 @@ jobs:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
 
-        - run: yarn build:browser
-        - run: yarn build:module
-        - run: echo //registry.npmjs.org/:_authToken=${NPM_TOKEN} > .npmrc
-        - run: npm publish
+      - run: yarn build:browser
+      - run: yarn build:module
+      - run: echo //registry.npmjs.org/:_authToken=${NPM_TOKEN} > .npmrc
+      - run: npm publish
 
 workflows:
   build-workflow:
