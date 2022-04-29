@@ -36,9 +36,9 @@ export async function makeRequest<T>(
         // @ts-ignore
         .then(res => snakeToCamel(res) as T)
         .catch(err => {
-            const error = NewHttpError({
-                code: 'Not Connected',
-            })
-            throw error
+            if (err.appStatusCode) {
+                throw err
+            }
+            throw err
         })
 }

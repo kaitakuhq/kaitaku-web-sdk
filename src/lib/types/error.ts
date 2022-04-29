@@ -22,9 +22,8 @@ export interface HTTPError extends Error {
 
 export const NewHttpError = (resp: HttpResponse<undefined>): HTTPError => {
     const err = new Error()
-
     let appStatusCode
-    switch (resp.code) {
+    switch (resp.status) {
         case HTTPErrorStatusCode.InvalidRequest:
             appStatusCode = HTTPErrorStatusCode.InvalidRequest
             break
