@@ -113,7 +113,7 @@ describe('<AddFeedbackPage />', () => {
     (createComment as jest.Mock).mockImplementation(() => {
       return new Promise(() => {
         const err = NewHttpError({
-          code: 'Unauthorized',
+          status: 'Unauthorized',
         })
         throw err
       })

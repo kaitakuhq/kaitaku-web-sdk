@@ -12,8 +12,8 @@ export type ReactNode = ReactChild | ReactFragment | ReactPortal | boolean | nul
 
 export interface HttpResponse<T> {
     data?: T
-    status?: string
-    code: string
+    status: string
+    code?: string
     error?: string
 }
 
