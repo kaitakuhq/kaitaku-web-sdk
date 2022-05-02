@@ -105,6 +105,40 @@ describe('<ListCategoryPage />', () => {
     })
   })
 
+  it('should only show active category', async () => {
+    (getProject as jest.Mock).mockImplementation(() => {
+      return new Promise(resolve => {
+        resolve({
+          category: [
+            categoryData[0],
+            {
+              ...categoryData[1],
+              active: false,
+            }
+          ]
+        })
+      })
+    });
+
+    (listComment as jest.Mock).mockImplementation(() => {
+      return new Promise(resolve => {
+        resolve([])
+      })
+    });
+
+    renderPage({
+      projectId: 'proj-56789'
+    })
+
+
+    await waitFor(() => {
+      const element = screen.queryByTestId('category-category-1')
+      expect(element).not.toBeNull()
+      const element2 = screen.queryByTestId('category-category-2')
+      expect(element2).toBeNull()
+    })
+  })
+
   it('should return onError if unauthorized', async () => {
     (getProject as jest.Mock).mockImplementation(() => {
       return new Promise(() => {
@@ -177,19 +211,19 @@ describe('<ListCategoryPage />', () => {
     const onError = jest.fn()
     renderPage({
       onError,
-      projectId: 'proj-56789'
+      projectId: 'proj-567891'
     })
 
 
     await waitFor(() => {
-      expect(listCommentSpy).toHaveBeenCalledWith('proj-56789', 'category-1', 'user-1234', 'token')
+      expect(listCommentSpy).toHaveBeenCalledWith('proj-567891', 'category-1', 'user-1234', 'token')
     })
 
     const element = await screen.findByTestId('category-category-2')
     fireEvent.click(element)
 
     await waitFor(() => {
-      expect(listCommentSpy).toHaveBeenCalledWith('proj-56789', 'category-2', 'user-1234', 'token')
+      expect(listCommentSpy).toHaveBeenCalledWith('proj-567891', 'category-2', 'user-1234', 'token')
     })
   })
 })

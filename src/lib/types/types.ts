@@ -23,10 +23,10 @@ export enum ProjectState {
 }
 
 export interface Category {
+    active: boolean
     description: string
     id: string
     name: string
-    state: ProjectState
 }
 
 export interface Comment {

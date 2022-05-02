@@ -1,4 +1,4 @@
-import React, { useEffect, useState, } from 'react';
+import React, { useEffect, useMemo, useState, } from 'react';
 import { Button } from '../components/Button';
 import { Category } from '../components/Category';
 import { Comment } from '../components/Comment';
@@ -6,7 +6,7 @@ import { Spinner } from '../components/Spinner';
 import { useGetProject } from '../hooks/useGetProject';
 import { useListComment } from '../hooks/useListComment';
 import { NewKaitakuError } from '../types/error';
-import { Category as CategoryProps, KaitakuProps } from '../types/types';
+import { Category as ICategory, Category as CategoryProps, KaitakuProps } from '../types/types';
 import empty from './../icons/empty.svg'
 import warning from './../icons/warning.svg'
 
@@ -20,7 +20,7 @@ export const ListCategoryPage = (
     const {
         data: categoryList,
         error: listCategoryError,
-        status,
+        status: categoryListStatus,
         isLoading: isLoadingProject,
     } = useGetProject({
         token: props.token,
@@ -29,7 +29,17 @@ export const ListCategoryPage = (
 
     const [selectedCategory, setSelectedCategory] = useState<CategoryProps | null>(null)
 
-    const categoryNotSetup = status === 'success' && (categoryList?.category.length || []) < 1
+    const filteredCategoryObj: { key: number, list: ICategory[] } = useMemo(() => {
+        const list = (categoryList?.category || []).filter(v => v.active === true)
+        return {
+            // key is used for other objects to listen to state change
+            key: new Date().getTime(),
+            list: list,
+        }
+    }, [categoryListStatus])
+
+    const categoryNotSetup = categoryListStatus === 'success'
+        && (filteredCategoryObj.list.length || []) < 1
 
     const onCategoryClick = (category: CategoryProps) => {
         setSelectedCategory(category)
@@ -55,14 +65,14 @@ export const ListCategoryPage = (
 
     // auto select first category
     useEffect(() => {
-        if ((categoryList?.category.length || 0) < 1) {
+        if (filteredCategoryObj.list.length < 1) {
             return
         }
         if (selectedCategory) {
             return
         }
-        setSelectedCategory(categoryList?.category[0]!)
-    }, [categoryList])
+        setSelectedCategory(filteredCategoryObj.list[0]!)
+    }, [filteredCategoryObj.key])
 
     const error = listCategoryError || listCommentError
 
@@ -123,18 +133,11 @@ export const ListCategoryPage = (
         <>
             <div className="kt-grid kt-grid-flow-col kt-overflow-x-auto kt-pb-2 kt-border-b-2 kt-border-slate-100">
                 {
-                    (categoryList?.category || []).map((c) => (
+                    filteredCategoryObj.list.map((c) => (
                         <Category
                             category={c}
                             onCategoryClick={onCategoryClick}
                             selectedCategory={selectedCategory} />
-                        // <div className="kt-p-2 kt-cursor-pointer justify-center items-center"
-                        //     data-testid={`category-${c.id}`}
-                        //     key={c.id}
-                        //     // @ts-ignore
-                        //     onClick={() => onCategoryClick(c)}>
-                        //     <span className="kt-whitespace-nowrap kt-align-baseline kt-text-center hover:kt-border-b-2 kt-border-blue-500 kt-text-gray-400 hover:kt-text-gray-900 kt-text-lg">{c.name}</span>
-                        // </div>
                     ))
                 }
             </div>
