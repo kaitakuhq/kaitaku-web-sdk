@@ -1,4 +1,4 @@
-import { KaitakuProps, Project, ProjectState } from "../lib/types/types"
+import { Category, KaitakuProps, Project, ProjectState } from "../lib/types/types"
 
 export const project: Project = {
     category: [],
@@ -8,18 +8,18 @@ export const project: Project = {
     ownerId: '1234',
 }
 
-export const category = [
+export const category: Category[] = [
     {
+        active: true,
         id: 'category-1',
         name: 'Feature Request',
         description: 'To request a new feature',
-        state: ProjectState.active
     },
     {
+        active: true,
         description: 'To tell us about what frustrates you',
         id: 'category-2',
         name: 'Frustration',
-        state: ProjectState.active
     },
 ]
 
