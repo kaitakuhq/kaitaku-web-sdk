@@ -10,7 +10,7 @@ import { Category, KaitakuProps } from '../types/types';
 import { queryClient } from '../util/queryClient';
 import './../../style/generated.css'
 
-export const Kaitaku = (props: KaitakuProps) => {
+export const MainComponent = (props: KaitakuProps) => {
 
     const { showFeedbackUI: _showFeedbackUI } = props
     const [showFeedbackUI, setShowFeedbackUI] = useState(false)
