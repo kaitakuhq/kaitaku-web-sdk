@@ -1,8 +1,8 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client';
-import { Kaitaku, KaitakuProps } from './index'
+import { MainComponent, KaitakuProps } from './index'
 
-class KaitakuClass {
+export class Kaitaku {
 
   feedbackUIElementId: string = 'kaitaku-feedback-ui'
 
@@ -19,10 +19,10 @@ class KaitakuClass {
 
     ReactDOM
       .createRoot(this.node)
-      .render(<Kaitaku {...this.props} />);
+      .render(<MainComponent {...this.props} />);
   }
 
-  findRenderingNode(node?: HTMLElement) {
+  private findRenderingNode(node?: HTMLElement) {
     let fmtNode = node
     if (!fmtNode) {
       // prevent creating two elements
@@ -47,7 +47,7 @@ class KaitakuClass {
     }
     ReactDOM
       .createRoot(this.node)
-      .render(<Kaitaku {...newProps} />);
+      .render(<MainComponent {...newProps} />);
   }
 
   hideFeedbackUI() {
@@ -57,9 +57,13 @@ class KaitakuClass {
     }
     ReactDOM
       .createRoot(this.node)
-      .render(<Kaitaku {...newProps} />);
+      .render(<MainComponent {...newProps} />);
   }
 }
 
-// @ts-ignore
-window.Kaitaku = KaitakuClass
+
+declare global {
+  interface Window { Kaitaku?: typeof Kaitaku; }
+}
+
+window.Kaitaku = Kaitaku

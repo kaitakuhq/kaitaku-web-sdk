@@ -44,7 +44,7 @@ This occurs becaues the node reference is not set at initialization time.
      if (!kaitakuRef.current) {
          return
      }
-    new (window as any).Kaitaku(kaitakuRef.current, {
+    new Kaitaku(kaitakuRef.current, {
       onError: (err: any) => {
         console.error(err)
       },

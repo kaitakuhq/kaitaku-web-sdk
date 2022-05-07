@@ -21,7 +21,8 @@
     "declaration": true,
     "declarationDir": "dist/types",
     "typeRoots": [
-      "src/lib/types"
+      "src/lib/types",
+      "src/lib/ModuleWrapper.tsx"
     ]
   },
   "include": [
