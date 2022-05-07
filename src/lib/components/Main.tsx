@@ -1,41 +1,87 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
     QueryClientProvider,
 } from 'react-query'
+import { EditIcon } from '../icons/EditIcon';
+import { XIcon } from '../icons/XIcon';
 import { AddFeedbackPage } from '../pages/AddFeedbackPage';
 import { ListCategoryPage } from '../pages/ListCategoryPage';
 import { Category, KaitakuProps } from '../types/types';
 import { queryClient } from '../util/queryClient';
 import './../../style/generated.css'
 
-
 export const Kaitaku = (props: KaitakuProps) => {
 
+    const { showFeedbackUI: _showFeedbackUI } = props
+    const [showFeedbackUI, setShowFeedbackUI] = useState(false)
+
+    useEffect(() => {
+        if (_showFeedbackUI === undefined) {
+            return
+        }
+        setShowFeedbackUI(_showFeedbackUI)
+    }, [_showFeedbackUI])
+
     const [showAddFeedback, setShowAddFeedback] = useState<Category | null>(null)
+
     return (
         <QueryClientProvider client={queryClient}>
-            <div className="kt-drop-shadow-md kt-bg-white kt-rounded-2xl kt-shadow-md kt-h-full kt-flex">
-                <div className="kt-p-2 kt-py-4 kt-max-w-[400px] kt-w-full ">
-                    {
-                        showAddFeedback
-                            ? null
-                            : (
-                                <ListCategoryPage
-                                    {...props}
-                                    onAddFeedback={setShowAddFeedback}
-                                />
-                            )
-                    }
-                    {
-                        showAddFeedback && (
-                            <AddFeedbackPage
-                                onGoBack={() => setShowAddFeedback(null)}
-                                showAddFeedback={showAddFeedback}
-                                {...props} />
-                        )
-                    }
-                </div>
-            </div>
+            {
+                showFeedbackUI === true && (
+                    <div className="kt-drop-shadow-md kt-bg-white kt-rounded-2xl kt-shadow-md kt-h-full kt-flex">
+                        <div className="kt-p-2 kt-py-4 kt-max-w-[400px] kt-w-full">
+                            <div className="kt-flex kt-justify-between kt-px-2 kt-mb-2">
+                                <span className='kt-text-base'>
+                                    Tell us how we can improve.
+                                </span>
+                                <div className='kt-cursor-pointer' onClick={() => setShowFeedbackUI(false)}>
+                                    <XIcon
+                                        width={'24px'}
+                                        height={'24px'}
+                                        stroke={'gray'} />
+                                </div>
+                            </div>
+                            {
+                                showAddFeedback
+                                    ? null
+                                    : (
+                                        <ListCategoryPage
+                                            {...props}
+                                            onAddFeedback={setShowAddFeedback}
+                                        />
+                                    )
+                            }
+                            {
+                                showAddFeedback && (
+                                    <AddFeedbackPage
+                                        onGoBack={() => setShowAddFeedback(null)}
+                                        showAddFeedback={showAddFeedback}
+                                        {...props} />
+                                )
+                            }
+                        </div>
+                    </div>
+                )
+            }
+
+            {
+                showFeedbackUI === false && (
+                    <div id="kaitaku-ui-trigger-button"
+                        className="kt-fixed kt-bottom-5 kt-right-5 kt-rounded-full kt-border-2 kt-border-white kt-bg-blue-600 kt-flex kt-justify-center kt-items-center kt-cursor-pointer"
+                        onClick={() => setShowFeedbackUI(!showFeedbackUI)}
+                        style={{
+                            height: '64px',
+                            width: '64px',
+                        }}>
+                        <div className='kt-fill-blue-500'>
+                            <EditIcon
+                                height='36px'
+                                width='36px'
+                                stroke="white" />
+                        </div>
+                    </div>
+                )
+            }
         </QueryClientProvider>
     )
 }

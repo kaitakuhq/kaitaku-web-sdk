@@ -2,9 +2,9 @@
   "compilerOptions": {
     "target": "es5",
     "lib": [
-      "dom",
+      "ES2015",
       "dom.iterable",
-      "esnext"
+      "dom"
     ],
     "allowJs": true,
     "skipLibCheck": true,
@@ -13,15 +13,24 @@
     "strict": true,
     "forceConsistentCasingInFileNames": true,
     "noFallthroughCasesInSwitch": true,
-    "module": "esnext",
+    "module": "es2015",
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "noEmit": true,
-    "jsx": "react-jsx"
+    "jsx": "react-jsx",
+    "declaration": true,
+    "declarationDir": "dist/types",
+    "typeRoots": [
+      "src/lib/types"
+    ]
   },
   "include": [
-    "src",
-    "src/types/custom.d.ts"
+    "src/lib",
+  ],
+  "exclude": [
+    "src/**/*.test.tsx",
+    "src/**/*.test.ts",
+    "src/testutil/**",
+    "node_modules/**"
   ]
 }

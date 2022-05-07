@@ -131,7 +131,7 @@ export const ListCategoryPage = (
 
     return (
         <>
-            <div className="kt-grid kt-grid-flow-col kt-overflow-x-auto kt-pb-2 kt-border-b-2 kt-border-slate-100">
+            <div className="kt-grid kt-grid-flow-col kt-overflow-x-auto">
                 {
                     filteredCategoryObj.list.map((c) => (
                         <Category
@@ -141,30 +141,37 @@ export const ListCategoryPage = (
                     ))
                 }
             </div>
+            <p className="kt-mb-2 kt-text-sm kt-text-gray-500 kt-pl-2 kt-h-[20px]">
+                to request a new feature in this application
+            </p>
+            <div className='kt-border-b-2 kt-border-slate-100'>
+            </div>
             {
                 isLoadingComments
                     ? <Spinner />
                     : (
-
-                        <div className="kt-overflow-y-auto kt-h-full kt-max-h-[300px] ">
-                            {
-                                (comments || []).map((c) => <Comment {...props} key={c.id} comment={c} />)
-                            }
-                            {
-                                ((comments || []).length < 1) && (
-                                    <div>
-                                        <div className="kt-p-2 kt-text-center">
-                                            <span className="kt-text-gray-300 kt-text-sm">No Comments for {selectedCategory?.name}</span>
+                        <>
+                            <div className="kt-overflow-y-auto kt-h-full kt-max-h-[290px] ">
+                                {
+                                    (comments || []).map((c) => <Comment {...props} key={c.id} comment={c} />)
+                                }
+                                {
+                                    ((comments || []).length < 1) && (
+                                        <div>
+                                            <div className="kt-p-2 kt-text-center">
+                                                <span className="kt-text-gray-300 kt-text-sm">No Comments for {selectedCategory?.name}</span>
+                                            </div>
                                         </div>
-                                    </div>
-                                )
-                            }
+                                    )
+                                }
+
+                            </div>
 
                             <Button
                                 onClick={onAddFeedback}
                                 title={'Add New Feedback'}
                                 type={'primary'} />
-                        </div>
+                        </>
                     )
             }
         </>
