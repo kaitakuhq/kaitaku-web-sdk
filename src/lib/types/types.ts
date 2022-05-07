@@ -4,6 +4,7 @@ import { KaitakuError } from "./error";
 export interface KaitakuProps {
     onError: (error: KaitakuError) => void
     projectId: string
+    showFeedbackUI?: boolean
     token: string
     userId: string
 }
@@ -45,4 +46,11 @@ export interface Project {
     name: string
     ownerId: string
     category: Category[]
+}
+
+
+export interface IconProps {
+    stroke: string
+    width: string
+    height: string
 }

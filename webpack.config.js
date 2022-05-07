@@ -1,18 +1,27 @@
-module.exports = {
-    entry: "./src/lib/index.tsx",
+
+const pkg = require('./package.json')
+
+const moduleUmd = {
+    entry: "./src/lib/ModuleWrapper.tsx",
 
     output: {
-        path: `${__dirname}/build/browser`,
-        filename: "main.js"
+        path: `${__dirname}/dist`,
+        filename: "kaitaku.module.umd.js",
+        libraryTarget: 'umd',
+        library: 'kaitaku-web-sdk',
+    },
+    devtool: 'source-map',
+
+    resolve: {
+        extensions: [".ts", ".tsx", ".js", ".json"]
     },
     module: {
         rules: [
             {
                 test: /\.tsx?$/,
-                // use: "ts-loader",
                 loader: require.resolve('ts-loader'),
                 options: {
-                    configFile: 'tsconfig.browser.json'
+                    configFile: 'tsconfig.json'
                 }
             },
             {
@@ -32,7 +41,8 @@ module.exports = {
             }
         ]
     },
-    resolve: {
-        extensions: [".ts", ".tsx", ".js", ".json"]
-    }
 };
+
+module.exports = [
+    moduleUmd,
+]

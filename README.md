@@ -64,7 +64,7 @@ The SDK will render in a HTML element. This container must have a specified heig
         //click me function!
         console.log("app-button clicked")
 
-        initMyThing(container, {
+        new Kaitaku(container, {
             onError: (err) => {
                 console.error(err)
             },
@@ -103,53 +103,50 @@ The SDK will render in a HTML element. This container must have a specified heig
 ### Develop
 
 
-```
+To run this library and make it viewable, it must integrate into an example application.
 
-# clone this repository
+```
+# 1. clone this repository
 git clone git@github.com:kaitakuhq/kaitaku-web-sdk.git
 
-# Go into the project root
+# 2. Go into the project root
 cd kaitaku-web-sdk
 
-# Install (or npm install)
-yarn 
+# 3. Install dependencies
+yarn
 
-# Start an example react app
+# 4. To watch and generate CSS builds (if updating Tailwind CSS classes)
+yarn run css:build:watch
+
+# 5. To watch and generate a UMD build
+yarn run build:watch
+
+# 6a. To watch and serve the UMD build to the application
+./node_modules/.bin/serve dist
+
+# alternatively,
+yarn add global serve
+serve dist
+
+# 7a. To run an example app in ReactJS
+cd example/reactjs
+yarn
 yarn start
 
+# 7b. To run an example app in Vanilla JS
+cd example/vanillajs
+open index.html
+
 ```
 
-If you are updating CSS classnames (based on [Tailwind](https://tailwindcss.com/docs/installation)), you need to run this in parallel:
-
-```
-yarn watch:css:build
-```
-
-If changes are made to `src/style/generated.css`, you are responsible for committing that back to the repository along side any changes to the `className`s.
+When Tailwind CSS is generated, it creates `src/style/generated.css`, which is required to be committed to this repository along with the appropriate changed files.
 
 The build will be created from `src/lib` folder.
 
 ### Build
 
-There are mainly 2 output targets:
+Running `yarn build` generates a UMD file and typings in the `dist` folder.
 
-1. browser - This creates a already compiled code which can run in a browser. Ideal for running with VanillaJS and jQuery.
+### Deploy
 
-2. module - This creates a library so that UI frameworks can import it before compiling. Ideal for running in React, Angular, Vue.js and many more.
-
-```
-
-# clone this repository
-git clone git@github.com:kaitakuhq/kaitaku-web-sdk.git
-
-# Go into the project root
-cd kaitaku-web-sdk
-
-# Install (or npm install)
-yarn 
-
-# Start an example react app
-yarn start
-
-```
-
+This will be deployed as a NPM package when a tag is created, and not when merged to main. Please view the Circle CI configuration under `publish` job for details.
