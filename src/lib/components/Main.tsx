@@ -44,14 +44,11 @@ export const MainComponent = (props: KaitakuProps) => {
                 showFeedbackUI === true && (
                     <div className="kt-drop-shadow-md kt-bg-white kt-rounded-2xl kt-shadow-md kt-h-full kt-flex">
                         <div className="kt-p-2 kt-py-4 kt-max-w-[400px] kt-w-full">
-                            <div className="kt-flex kt-justify-between kt-px-2 kt-mb-2">
-                                <span className='kt-text-base'>
-                                    Tell us how we can improve.
-                                </span>
+                            <div className="kt-flex kt-px-2 kt-mb-2 kt-justify-end">
                                 <div className='kt-cursor-pointer' onClick={() => setShowFeedbackUI(false)}>
                                     <XIcon
-                                        width={'24px'}
-                                        height={'24px'}
+                                        width={'18px'}
+                                        height={'18px'}
                                         stroke={'gray'} />
                                 </div>
                             </div>
