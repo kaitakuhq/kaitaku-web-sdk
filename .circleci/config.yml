@@ -63,6 +63,9 @@ jobs:
 
       - run: yarn build
       - run: echo //registry.npmjs.org/:_authToken=${NPM_TOKEN} > .npmrc
+      - run:
+          name: "Replacing Tag Version Value"
+          command: scripts/update-version.sh pipeline.git.tag package.json
       - run: npm publish
 
 workflows:
