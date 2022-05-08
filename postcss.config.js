@@ -8,10 +8,6 @@ module.exports = {
         require('tailwindcss'),
         prefixSelector({
             prefix: container + ' ',
-            exclude: [
-                /\[/, // starts with [ (e.g. [role])
-            ],
-
             // Optional transform callback for case-by-case overrides
             transform: function (prefix, selector, prefixedSelector) {
                 console.log("Prefix:", prefix, ", selector:", selector, ", prefixedSelector:", prefixSelector)
