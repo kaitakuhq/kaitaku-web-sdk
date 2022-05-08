@@ -50,7 +50,7 @@
 /*
 Add the correct text decoration in Chrome, Edge, and Safari.
 */
-abbr:where([title]) {
+#kaitaku-feedback-ui abbr:where([title]) {
   text-decoration: underline dotted;
 }
 /*
@@ -151,9 +151,9 @@ Remove the inheritance of text transform in Edge and Firefox.
 2. Remove default button styles.
 */
 #kaitaku-feedback-ui button,
-[type='button'],
-[type='reset'],
-[type='submit'] {
+#kaitaku-feedback-ui [type='button'],
+#kaitaku-feedback-ui [type='reset'],
+#kaitaku-feedback-ui [type='submit'] {
   -webkit-appearance: button; /* 1 */
   background-color: transparent; /* 2 */
   background-image: none; /* 2 */
@@ -187,7 +187,7 @@ Correct the cursor style of increment and decrement buttons in Safari.
 1. Correct the odd appearance in Chrome and Safari.
 2. Correct the outline style in Safari.
 */
-[type='search'] {
+#kaitaku-feedback-ui [type='search'] {
   -webkit-appearance: textfield; /* 1 */
   outline-offset: -2px; /* 2 */
 }
@@ -262,7 +262,7 @@ Prevent resizing textareas horizontally by default.
 Set the default cursor for buttons.
 */
 #kaitaku-feedback-ui button,
-[role="button"] {
+#kaitaku-feedback-ui [role="button"] {
   cursor: pointer;
 }
 /*
@@ -298,7 +298,7 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
 /*
 Ensure the default browser behavior of the `hidden` attribute.
 */
-[hidden] {
+#kaitaku-feedback-ui [hidden] {
   display: none;
 }
 #kaitaku-feedback-ui *, #kaitaku-feedback-ui ::before, #kaitaku-feedback-ui ::after {
@@ -381,7 +381,7 @@ Ensure the default browser behavior of the `hidden` attribute.
 #kaitaku-feedback-ui .kt-grid {
   display: grid;
 }
-.kt-h-\[460px\] {
+#kaitaku-feedback-ui .kt-h-\[460px\] {
   height: 460px;
 }
 #kaitaku-feedback-ui .kt-h-3 {
@@ -396,13 +396,13 @@ Ensure the default browser behavior of the `hidden` attribute.
 #kaitaku-feedback-ui .kt-h-24 {
   height: 6rem;
 }
-.kt-max-h-\[400px\] {
+#kaitaku-feedback-ui .kt-max-h-\[400px\] {
   max-height: 400px;
 }
-.kt-max-h-\[290px\] {
+#kaitaku-feedback-ui .kt-max-h-\[290px\] {
   max-height: 290px;
 }
-.kt-w-\[400px\] {
+#kaitaku-feedback-ui .kt-w-\[400px\] {
   width: 400px;
 }
 #kaitaku-feedback-ui .kt-w-full {
@@ -420,7 +420,7 @@ Ensure the default browser behavior of the `hidden` attribute.
 #kaitaku-feedback-ui .kt-w-24 {
   width: 6rem;
 }
-.kt-max-w-\[400px\] {
+#kaitaku-feedback-ui .kt-max-w-\[400px\] {
   max-width: 400px;
 }
 @keyframes kt-spin {
@@ -455,7 +455,7 @@ Ensure the default browser behavior of the `hidden` attribute.
 #kaitaku-feedback-ui .kt-gap-0 {
   gap: 0px;
 }
-.kt-space-y-4 > :not([hidden]) ~ :not([hidden]) {
+#kaitaku-feedback-ui .kt-space-y-4 > :not([hidden]) ~ :not([hidden]) {
   --tw-space-y-reverse: 0;
   margin-top: calc(1rem * calc(1 - var(--tw-space-y-reverse)));
   margin-bottom: calc(1rem * var(--tw-space-y-reverse));
