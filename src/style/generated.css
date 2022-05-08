@@ -530,10 +530,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   height: 6rem;
 }
 
-.kt-h-\[20px\] {
-  height: 20px;
-}
-
 .kt-max-h-\[400px\] {
   max-height: 400px;
 }
@@ -783,10 +779,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   font-weight: 600;
 }
 
-.kt-font-bold {
-  font-weight: 700;
-}
-
 .kt-font-medium {
   font-weight: 500;
 }
@@ -852,23 +844,14 @@ Ensure the default browser behavior of the `hidden` attribute.
   border-radius: 0.25rem;
 }
 
-.hover\:kt-border-b-2:hover {
-  border-bottom-width: 2px;
+.hover\:kt-bg-slate-100:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(241 245 249 / var(--tw-bg-opacity));
 }
 
 .hover\:kt-bg-gray-100:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(243 244 246 / var(--tw-bg-opacity));
-}
-
-.hover\:kt-bg-sky-700:hover {
-  --tw-bg-opacity: 1;
-  background-color: rgb(3 105 161 / var(--tw-bg-opacity));
-}
-
-.hover\:kt-bg-slate-100:hover {
-  --tw-bg-opacity: 1;
-  background-color: rgb(241 245 249 / var(--tw-bg-opacity));
 }
 
 .hover\:kt-text-gray-900:hover {

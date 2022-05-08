@@ -15,6 +15,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "css:build": "npx tailwindcss -i ./src/style/tailwind-input.css -o ./src/style/generated.css",
     "css:build:watch": "npx tailwindcss -i ./src/style/tailwind-input.css -o ./src/style/generated.css --watch",
     "build:example": "react-scripts build",
     "build": "webpack --config webpack.config.js && cp package.json dist/package.json",
