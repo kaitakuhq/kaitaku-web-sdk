@@ -90,12 +90,14 @@ The SDK will render in a HTML element. This container must have a specified heig
 
 ## API Options
 
-| Name | Type | Description |
-|--|--|--|
-| onError | Function | Called when error occurs.  | 
-| project | String | project ID |
-| token | String | Token for the account | 
-| userId | String | Unique user id | 
+| Name | Required | Type | Description | Default Value |
+|--|--|--|--|--|
+| onError | Yes | Function | Called when error occurs.  |  |
+| project | Yes | String | project ID | |
+| token | Yes | String | Token for the account |  |
+| userId | Yes | String | Unique user id | |
+| showFeedbackButton | No | Boolean | Whether to show the default feedback button | true |
+| showFeedbackUI | No | Boolean | Whether to show the default feedback UI | false |
 
 ## Contributing
 
