@@ -601,12 +601,12 @@ Ensure the default browser behavior of the `hidden` attribute.
   align-items: center;
 }
 
-.kt-justify-center {
-  justify-content: center;
+.kt-justify-end {
+  justify-content: flex-end;
 }
 
-.kt-justify-between {
-  justify-content: space-between;
+.kt-justify-center {
+  justify-content: center;
 }
 
 .kt-gap-2 {
