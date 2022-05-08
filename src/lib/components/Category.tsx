@@ -7,8 +7,8 @@ export interface Props {
     selectedCategory: CategoryProp | null
 }
 
-export const selectedClasses = 'kt-border-b-2 kt-border-blue-500 kt-text-gray-400 kt-text-gray-900 kt-text-base kt-font-bold'
-export const nonSelectedClasses = 'hover:kt-border-b-2 kt-border-blue-500 kt-text-gray-400 hover:kt-text-gray-900 kt-text-base'
+export const selectedClasses = 'kt-border-b-2 kt-border-blue-500 kt-text-gray-400 kt-text-gray-900 kt-text-base kt-font-medium'
+export const nonSelectedClasses = ' kt-text-gray-400 hover:kt-text-gray-900 kt-text-base'
 
 export const Category = (props: Props) => {
 
@@ -18,7 +18,7 @@ export const Category = (props: Props) => {
     } = props
 
     return (
-        <div className="kt-p-2 kt-cursor-pointer justify-center items-center"
+        <div className="kt-p-2 kt-cursor-pointer kt-justify-center kt-items-center kt-text-center hover:kt-bg-slate-100 hover:kt-rounded"
             data-testid={`category-${c.id}`}
             key={c.id}
             // @ts-ignore
