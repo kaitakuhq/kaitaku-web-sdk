@@ -65,7 +65,7 @@ jobs:
       - run: echo //registry.npmjs.org/:_authToken=${NPM_TOKEN} > .npmrc
       - run:
           name: "Replacing Tag Version Value"
-          command: bash scripts/update-version.sh pipeline.git.tag package.json
+          command: bash scripts/update-version.sh <<pipeline.git.tag>> package.json
       - run: npm publish
 
 workflows:
