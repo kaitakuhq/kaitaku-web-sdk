@@ -141,8 +141,10 @@ export const ListCategoryPage = (
                     ))
                 }
             </div>
-            <p className="kt-mb-2 kt-text-sm kt-text-gray-500 kt-pl-2 kt-h-[20px]">
-                to request a new feature in this application
+            <p
+                className="kt-mb-2 kt-text-sm kt-text-gray-500 kt-pl-2 kt-pt-2 kt-text-center"
+                data-testid="list-category-item-description">
+                {selectedCategory?.description || ''}
             </p>
             <div className='kt-border-b-2 kt-border-slate-100'>
             </div>

@@ -56,8 +56,9 @@ export const AddFeedbackPage = (
                 </div>
 
                 <div className="kt-flex kt-flex-col kt-items-center kt-space-y-4">
-                    <p className="kt-mt-2 kt-text-sm kt-text-gray-500 kt-text-center kt-w-5/6">
-                        to request a new feature in this application
+                    <p className="kt-mt-2 kt-text-sm kt-text-gray-500 kt-text-center kt-w-5/6"
+                        data-testid="add-feedback-category-description">
+                        {props.showAddFeedback.description || ''}
                     </p>
                     <textarea
                         className="kt-border-2 kt-rounded-md kt-w-full kt-h-24 kt-px-4"
