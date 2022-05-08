@@ -8,7 +8,7 @@ export interface Props {
 }
 
 export const selectedClasses = 'kt-border-b-2 kt-border-blue-500 kt-text-gray-400 kt-text-gray-900 kt-text-base kt-font-medium'
-export const nonSelectedClasses = ' kt-text-gray-400 hover:kt-text-gray-900 kt-text-base'
+export const nonSelectedClasses = 'kt-text-gray-400 hover:kt-text-gray-900 kt-text-base'
 
 export const Category = (props: Props) => {
 
