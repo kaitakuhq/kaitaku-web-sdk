@@ -18,7 +18,8 @@
     "css:build": "npx postcss ./src/style/tailwind-input.css -o ./src/style/generated.css",
     "css:build:watch": "npx postcss ./src/style/tailwind-input.css -o ./src/style/generated.css --watch",
     "build:example": "react-scripts build",
-    "build": "webpack --config webpack.config.js && cp package.json dist/package.json",
+    "build": "yarn css:build && yarn build:tsc",
+    "build:tsc": "webpack --config webpack.config.js && cp package.json dist/package.json",
     "build:watch": "webpack --config webpack.config.js -w",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
