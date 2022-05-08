@@ -15,10 +15,11 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "css:build": "npx tailwindcss -i ./src/style/tailwind-input.css -o ./src/style/generated.css",
-    "css:build:watch": "npx tailwindcss -i ./src/style/tailwind-input.css -o ./src/style/generated.css --watch",
+    "css:build": "npx postcss ./src/style/tailwind-input.css -o ./src/style/generated.css",
+    "css:build:watch": "npx postcss ./src/style/tailwind-input.css -o ./src/style/generated.css --watch",
     "build:example": "react-scripts build",
-    "build": "webpack --config webpack.config.js && cp package.json dist/package.json",
+    "build": "yarn css:build && yarn build:tsc",
+    "build:tsc": "webpack --config webpack.config.js && cp package.json dist/package.json",
     "build:watch": "webpack --config webpack.config.js -w",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
@@ -45,16 +46,20 @@
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^13.0.0",
     "@testing-library/user-event": "^13.2.1",
+    "@types/humps": "^2.0.1",
     "@types/jest": "^27.0.1",
     "@types/node": "^16.7.13",
-    "@types/humps": "^2.0.1",
     "@types/react": "18.0.0",
     "@types/react-dom": "18.0.0",
     "css-loader": "^6.7.1",
+    "postcss": "^8.4.13",
+    "postcss-cli": "^9.1.0",
+    "postcss-import": "^14.1.0",
+    "postcss-prefix-selector": "^1.15.0",
+    "serve": "^13.0.2",
     "svg-url-loader": "^7.1.1",
     "tailwindcss": "^3.0.24",
     "ts-loader": "^9.2.8",
-    "webpack-cli": "^4.9.2",
-    "serve": "^13.0.2"
+    "webpack-cli": "^4.9.2"
   }
 }

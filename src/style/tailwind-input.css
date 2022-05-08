@@ -1,3 +1,16 @@
+/* postcss-partial-process start */
 @tailwind base;
+
+
+/* postcss-partial-process end */
 @tailwind components;
 @tailwind utilities;
+
+#kaitaku-feedback-ui {
+    position: fixed;
+    right: 1.25rem;
+    bottom: 1.25rem;
+    width: 400px;
+    height: 460px;
+    z-index: 50;
+}
