@@ -55,6 +55,20 @@ describe('<AddFeedbackPage />', () => {
     })
   });
 
+  it("renders category description", async () => {
+    renderPage({
+      showAddFeedback: {
+        ...comment[0],
+        description: 'lorem ipsum'
+      }
+    })
+
+    await waitFor(() => {
+      const element = screen.getByTestId('add-feedback-category-description')
+      expect(element.textContent).toEqual('lorem ipsum')
+    })
+  });
+
   it('should not call add comments if no text is entered', async () => {
     renderPage()
 

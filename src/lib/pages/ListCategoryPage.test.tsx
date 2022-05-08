@@ -226,4 +226,35 @@ describe('<ListCategoryPage />', () => {
       expect(listCommentSpy).toHaveBeenCalledWith('proj-567891', 'category-2', 'user-1234', 'token')
     })
   })
+
+  it('should show category description if provided', async () => {
+    (getProject as jest.Mock).mockImplementation(() => {
+      return new Promise(resolve => {
+        resolve({
+          category: [
+            {
+              ...categoryData[0],
+              description: 'lorem ipsum'
+            },
+            ...categoryData
+          ],
+        })
+      })
+    });
+    (listComment as jest.Mock).mockImplementation(() => {
+      return new Promise(resolve => {
+        resolve(commentData)
+      })
+    });
+
+    renderPage({
+      projectId: 'proj-5678912'
+    })
+
+    await waitFor(() => {
+      const element = screen.getByTestId('list-category-item-description')
+      expect(element.textContent).toEqual('lorem ipsum')
+    })
+
+  })
 })
