@@ -5,6 +5,7 @@ export interface KaitakuProps {
     onError: (error: KaitakuError) => void
     projectId: string
     showFeedbackUI?: boolean
+    showFeedbackButton?: boolean
     token: string
     userId: string
 }

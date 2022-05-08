@@ -40,6 +40,26 @@ export class Kaitaku {
     return fmtNode
   }
 
+  showFeedbackButton() {
+    const newProps = {
+      ...this.props,
+      showFeedbackButton: true,
+    }
+    ReactDOM
+      .createRoot(this.node)
+      .render(<MainComponent {...newProps} />);
+  }
+
+  hideFeedbackButton() {
+    const newProps = {
+      ...this.props,
+      showFeedbackButton: false,
+    }
+    ReactDOM
+      .createRoot(this.node)
+      .render(<MainComponent {...newProps} />);
+  }
+
   showFeedbackUI() {
     const newProps = {
       ...this.props,

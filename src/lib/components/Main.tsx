@@ -12,8 +12,15 @@ import './../../style/generated.css'
 
 export const MainComponent = (props: KaitakuProps) => {
 
-    const { showFeedbackUI: _showFeedbackUI } = props
+    const {
+        showFeedbackButton: _showFeedbackButton,
+        showFeedbackUI: _showFeedbackUI,
+    } = props
+
     const [showFeedbackUI, setShowFeedbackUI] = useState(false)
+
+    // showFeedbackButton defaults to true
+    const [showFeedbackButton, setShowFeedbackButton] = useState(true)
 
     useEffect(() => {
         if (_showFeedbackUI === undefined) {
@@ -21,6 +28,13 @@ export const MainComponent = (props: KaitakuProps) => {
         }
         setShowFeedbackUI(_showFeedbackUI)
     }, [_showFeedbackUI])
+
+    useEffect(() => {
+        if (_showFeedbackButton === undefined) {
+            return
+        }
+        setShowFeedbackButton(_showFeedbackButton)
+    }, [_showFeedbackButton])
 
     const [showAddFeedback, setShowAddFeedback] = useState<Category | null>(null)
 
@@ -65,8 +79,9 @@ export const MainComponent = (props: KaitakuProps) => {
             }
 
             {
-                showFeedbackUI === false && (
+                (showFeedbackUI === false && showFeedbackButton === true) && (
                     <div id="kaitaku-ui-trigger-button"
+                        data-testid="kaitaku-ui-trigger-button"
                         className="kt-fixed kt-bottom-5 kt-right-5 kt-rounded-full kt-border-2 kt-border-white kt-bg-blue-600 kt-flex kt-justify-center kt-items-center kt-cursor-pointer"
                         onClick={() => setShowFeedbackUI(!showFeedbackUI)}
                         style={{
