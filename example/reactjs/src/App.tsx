@@ -1,6 +1,7 @@
 import React, { useRef, useState } from 'react';
 import { useEffect } from 'react';
 import './App.css';
+import { Kaitaku } from '@kaitaku/kaitaku-web-sdk'
 
 function App() {
   useEffect(() => {
@@ -8,7 +9,7 @@ function App() {
     const projectId = 'mVhuSeRl9UXjJevV0sTy'
     const user1 = 'user1';
 
-    const kaitaku = new (window as any).Kaitaku({
+    const kaitaku = new Kaitaku({
       onError: (err: any) => {
         console.error(err)
       },
