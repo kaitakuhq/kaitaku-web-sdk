@@ -1,18 +1,18 @@
 
-jest.mock('../api/updateComment', () => ({
-    updateComment: jest.fn(),
+jest.mock('../api/upvoteComment', () => ({
+    upvoteComment: jest.fn(),
 }));
 
 import { fireEvent, render, screen, waitFor, } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import * as commentList from "../api/updateComment";
+import * as commentList from "../api/upvoteComment";
 import { WrappedQueryClient } from '../../testutil/clientProvider';
 import { comment, kaitakuProps } from '../../testutil/testdata';
 import { Comment, Props } from './Comment';
 
 describe('<Comment />', () => {
 
-    let updateCommentSpy: jest.SpyInstance;
+    let upvoteCommentSpy: jest.SpyInstance;
 
     const renderPage = (override?: Partial<Props>) => {
         const props = {
@@ -28,11 +28,11 @@ describe('<Comment />', () => {
     }
 
     beforeEach(() => {
-        updateCommentSpy = jest.spyOn(commentList, 'updateComment')
+        upvoteCommentSpy = jest.spyOn(commentList, 'upvoteComment')
     });
 
     afterEach(() => {
-        updateCommentSpy.mockRestore()
+        upvoteCommentSpy.mockRestore()
         jest.clearAllMocks();
     });
 
@@ -95,7 +95,7 @@ describe('<Comment />', () => {
         userEvent.click(commentVoteBox)
 
         await waitFor(() => {
-            expect(updateCommentSpy).toHaveBeenCalledWith(
+            expect(upvoteCommentSpy).toHaveBeenCalledWith(
                 'proj-1234',
                 comment[0].categoryId,
                 comment[0].id,
@@ -118,7 +118,7 @@ describe('<Comment />', () => {
         userEvent.click(commentVoteBox)
 
         await waitFor(() => {
-            expect(updateCommentSpy).toHaveBeenCalledWith(
+            expect(upvoteCommentSpy).toHaveBeenCalledWith(
                 'proj-1234',
                 comment[0].categoryId,
                 comment[0].id,

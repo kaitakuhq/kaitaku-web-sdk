@@ -1,7 +1,7 @@
 import { Comment, } from "../types/types"
 import { makeRequest } from "./common"
 
-export const updateComment = (
+export const upvoteComment = (
     projectId: string,
     categoryId: string,
     commentId: string,
@@ -13,11 +13,11 @@ export const updateComment = (
         return new Promise(resolve => resolve(null))
     }
     return makeRequest<Comment | null>(
-        `/project/${projectId}/category/${categoryId}/comment/${commentId}`,
+        `/project/${projectId}/category/${categoryId}/comment/${commentId}/vote`,
         token, {
         method: 'PUT',
         body: JSON.stringify({
-            upvoted: upvoted,
+            user_voted: upvoted,
             user_id: userId,
         })
     })

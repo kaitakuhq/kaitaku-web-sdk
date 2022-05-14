@@ -7,21 +7,15 @@
 #kaitaku-feedback-ui *,
 #kaitaku-feedback-ui ::before,
 #kaitaku-feedback-ui ::after {
-  box-sizing: border-box;
-  /* 1 */
-  border-width: 0;
-  /* 2 */
-  border-style: solid;
-  /* 2 */
-  border-color: #e5e7eb;
-  /* 2 */
+  box-sizing: border-box; /* 1 */
+  border-width: 0; /* 2 */
+  border-style: solid; /* 2 */
+  border-color: #e5e7eb; /* 2 */
 }
-
 #kaitaku-feedback-ui ::before,
 #kaitaku-feedback-ui ::after {
   --tw-content: '';
 }
-
 /*
 1. Use a consistent sensible line-height in all browsers.
 2. Prevent adjustments of font size after orientation changes in iOS.
@@ -29,50 +23,36 @@
 4. Use the user's configured `sans` font-family by default.
 */
 #kaitaku-feedback-ui * {
-  line-height: 1.5;
-  /* 1 */
-  -webkit-text-size-adjust: 100%;
-  /* 2 */
-  -moz-tab-size: 4;
-  /* 3 */
-  tab-size: 4;
-  /* 3 */
-  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  /* 4 */
+  line-height: 1.5; /* 1 */
+  -webkit-text-size-adjust: 100%; /* 2 */
+  -moz-tab-size: 4; /* 3 */
+  tab-size: 4; /* 3 */
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; /* 4 */
 }
-
 /*
 1. Remove the margin in all browsers.
 2. Inherit line-height from `html` so users can set them as a class directly on the `html` element.
 */
 #kaitaku-feedback-ui body {
-  margin: 0;
-  /* 1 */
-  line-height: inherit;
-  /* 2 */
+  margin: 0; /* 1 */
+  line-height: inherit; /* 2 */
 }
-
 /*
 1. Add the correct height in Firefox.
 2. Correct the inheritance of border color in Firefox. (https://bugzilla.mozilla.org/show_bug.cgi?id=190655)
 3. Ensure horizontal rules are visible by default.
 */
 #kaitaku-feedback-ui hr {
-  height: 0;
-  /* 1 */
-  color: inherit;
-  /* 2 */
-  border-top-width: 1px;
-  /* 3 */
+  height: 0; /* 1 */
+  color: inherit; /* 2 */
+  border-top-width: 1px; /* 3 */
 }
-
 /*
 Add the correct text decoration in Chrome, Edge, and Safari.
 */
 #kaitaku-feedback-ui abbr:where([title]) {
   text-decoration: underline dotted;
 }
-
 /*
 Remove the default font size and weight for headings.
 */
@@ -85,7 +65,6 @@ Remove the default font size and weight for headings.
   font-size: inherit;
   font-weight: inherit;
 }
-
 /*
 Reset links to optimize for opt-in styling instead of opt-out.
 */
@@ -93,7 +72,6 @@ Reset links to optimize for opt-in styling instead of opt-out.
   color: inherit;
   text-decoration: inherit;
 }
-
 /*
 Add the correct font weight in Edge and Safari.
 */
@@ -101,7 +79,6 @@ Add the correct font weight in Edge and Safari.
 #kaitaku-feedback-ui strong {
   font-weight: bolder;
 }
-
 /*
 1. Use the user's configured `mono` font family by default.
 2. Correct the odd `em` font sizing in all browsers.
@@ -110,19 +87,15 @@ Add the correct font weight in Edge and Safari.
 #kaitaku-feedback-ui kbd,
 #kaitaku-feedback-ui samp,
 #kaitaku-feedback-ui pre {
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-  /* 1 */
-  font-size: 1em;
-  /* 2 */
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; /* 1 */
+  font-size: 1em; /* 2 */
 }
-
 /*
 Add the correct font size in all browsers.
 */
 #kaitaku-feedback-ui small {
   font-size: 80%;
 }
-
 /*
 Prevent `sub` and `sup` elements from affecting the line height in all browsers.
 */
@@ -133,29 +106,22 @@ Prevent `sub` and `sup` elements from affecting the line height in all browsers.
   position: relative;
   vertical-align: baseline;
 }
-
 #kaitaku-feedback-ui sub {
   bottom: -0.25em;
 }
-
 #kaitaku-feedback-ui sup {
   top: -0.5em;
 }
-
 /*
 1. Remove text indentation from table contents in Chrome and Safari. (https://bugs.chromium.org/p/chromium/issues/detail?id=999088, https://bugs.webkit.org/show_bug.cgi?id=201297)
 2. Correct table border color inheritance in all Chrome and Safari. (https://bugs.chromium.org/p/chromium/issues/detail?id=935729, https://bugs.webkit.org/show_bug.cgi?id=195016)
 3. Remove gaps between table borders by default.
 */
 #kaitaku-feedback-ui table {
-  text-indent: 0;
-  /* 1 */
-  border-color: inherit;
-  /* 2 */
-  border-collapse: collapse;
-  /* 3 */
+  text-indent: 0; /* 1 */
+  border-color: inherit; /* 2 */
+  border-collapse: collapse; /* 3 */
 }
-
 /*
 1. Change the font styles in all browsers.
 2. Remove the margin in Firefox and Safari.
@@ -166,20 +132,13 @@ Prevent `sub` and `sup` elements from affecting the line height in all browsers.
 #kaitaku-feedback-ui optgroup,
 #kaitaku-feedback-ui select,
 #kaitaku-feedback-ui textarea {
-  font-family: inherit;
-  /* 1 */
-  font-size: 100%;
-  /* 1 */
-  line-height: inherit;
-  /* 1 */
-  color: inherit;
-  /* 1 */
-  margin: 0;
-  /* 2 */
-  padding: 0;
-  /* 3 */
+  font-family: inherit; /* 1 */
+  font-size: 100%; /* 1 */
+  line-height: inherit; /* 1 */
+  color: inherit; /* 1 */
+  margin: 0; /* 2 */
+  padding: 0; /* 3 */
 }
-
 /*
 Remove the inheritance of text transform in Edge and Firefox.
 */
@@ -187,7 +146,6 @@ Remove the inheritance of text transform in Edge and Firefox.
 #kaitaku-feedback-ui select {
   text-transform: none;
 }
-
 /*
 1. Correct the inability to style clickable types in iOS and Safari.
 2. Remove default button styles.
@@ -196,35 +154,28 @@ Remove the inheritance of text transform in Edge and Firefox.
 #kaitaku-feedback-ui [type='button'],
 #kaitaku-feedback-ui [type='reset'],
 #kaitaku-feedback-ui [type='submit'] {
-  -webkit-appearance: button;
-  /* 1 */
-  background-color: transparent;
-  /* 2 */
-  background-image: none;
-  /* 2 */
+  -webkit-appearance: button; /* 1 */
+  background-color: transparent; /* 2 */
+  background-image: none; /* 2 */
 }
-
 /*
 Use the modern Firefox focus style for all focusable elements.
 */
 #kaitaku-feedback-ui :-moz-focusring {
   outline: auto;
 }
-
 /*
 Remove the additional `:invalid` styles in Firefox. (https://github.com/mozilla/gecko-dev/blob/2f9eacd9d3d995c937b4251a5557d95d494c9be1/layout/style/res/forms.css#L728-L737)
 */
 #kaitaku-feedback-ui :-moz-ui-invalid {
   box-shadow: none;
 }
-
 /*
 Add the correct vertical alignment in Chrome and Firefox.
 */
 #kaitaku-feedback-ui progress {
   vertical-align: baseline;
 }
-
 /*
 Correct the cursor style of increment and decrement buttons in Safari.
 */
@@ -232,43 +183,34 @@ Correct the cursor style of increment and decrement buttons in Safari.
 #kaitaku-feedback-ui ::-webkit-outer-spin-button {
   height: auto;
 }
-
 /*
 1. Correct the odd appearance in Chrome and Safari.
 2. Correct the outline style in Safari.
 */
 #kaitaku-feedback-ui [type='search'] {
-  -webkit-appearance: textfield;
-  /* 1 */
-  outline-offset: -2px;
-  /* 2 */
+  -webkit-appearance: textfield; /* 1 */
+  outline-offset: -2px; /* 2 */
 }
-
 /*
 Remove the inner padding in Chrome and Safari on macOS.
 */
 #kaitaku-feedback-ui ::-webkit-search-decoration {
   -webkit-appearance: none;
 }
-
 /*
 1. Correct the inability to style clickable types in iOS and Safari.
 2. Change font properties to `inherit` in Safari.
 */
 #kaitaku-feedback-ui ::-webkit-file-upload-button {
-  -webkit-appearance: button;
-  /* 1 */
-  font: inherit;
-  /* 2 */
+  -webkit-appearance: button; /* 1 */
+  font: inherit; /* 2 */
 }
-
 /*
 Add the correct display in Chrome and Safari.
 */
 #kaitaku-feedback-ui summary {
   display: list-item;
 }
-
 /*
 Removes the default spacing and border for appropriate elements.
 */
@@ -287,16 +229,13 @@ Removes the default spacing and border for appropriate elements.
 #kaitaku-feedback-ui pre {
   margin: 0;
 }
-
 #kaitaku-feedback-ui fieldset {
   margin: 0;
   padding: 0;
 }
-
 #kaitaku-feedback-ui legend {
   padding: 0;
 }
-
 #kaitaku-feedback-ui ol,
 #kaitaku-feedback-ui ul,
 #kaitaku-feedback-ui menu {
@@ -304,26 +243,21 @@ Removes the default spacing and border for appropriate elements.
   margin: 0;
   padding: 0;
 }
-
 /*
 Prevent resizing textareas horizontally by default.
 */
 #kaitaku-feedback-ui textarea {
   resize: vertical;
 }
-
 /*
 1. Reset the default placeholder opacity in Firefox. (https://github.com/tailwindlabs/tailwindcss/issues/3300)
 2. Set the default placeholder color to the user's configured gray 400 color.
 */
 #kaitaku-feedback-ui input::placeholder,
 #kaitaku-feedback-ui textarea::placeholder {
-  opacity: 1;
-  /* 1 */
-  color: #9ca3af;
-  /* 2 */
+  opacity: 1; /* 1 */
+  color: #9ca3af; /* 2 */
 }
-
 /*
 Set the default cursor for buttons.
 */
@@ -331,14 +265,12 @@ Set the default cursor for buttons.
 #kaitaku-feedback-ui [role="button"] {
   cursor: pointer;
 }
-
 /*
 Make sure disabled buttons don't get the pointer cursor.
 */
 #kaitaku-feedback-ui :disabled {
   cursor: default;
 }
-
 /*
 1. Make replaced elements `display: block` by default. (https://github.com/mozdevs/cssremedy/issues/14)
 2. Add `vertical-align: middle` to align replaced elements more sensibly by default. (https://github.com/jensimmons/cssremedy/issues/14#issuecomment-634934210)
@@ -352,12 +284,9 @@ Make sure disabled buttons don't get the pointer cursor.
 #kaitaku-feedback-ui iframe,
 #kaitaku-feedback-ui embed,
 #kaitaku-feedback-ui object {
-  display: block;
-  /* 1 */
-  vertical-align: middle;
-  /* 2 */
+  display: block; /* 1 */
+  vertical-align: middle; /* 2 */
 }
-
 /*
 Constrain images and videos to the parent width and preserve their intrinsic aspect ratio. (https://github.com/mozdevs/cssremedy/issues/14)
 */
@@ -366,17 +295,13 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
   max-width: 100%;
   height: auto;
 }
-
 /*
 Ensure the default browser behavior of the `hidden` attribute.
 */
 #kaitaku-feedback-ui [hidden] {
   display: none;
 }
-
-#kaitaku-feedback-ui *,
-#kaitaku-feedback-ui ::before,
-#kaitaku-feedback-ui ::after {
+#kaitaku-feedback-ui *, #kaitaku-feedback-ui ::before, #kaitaku-feedback-ui ::after {
   --tw-translate-x: 0;
   --tw-translate-y: 0;
   --tw-rotate: 0;
@@ -384,16 +309,16 @@ Ensure the default browser behavior of the `hidden` attribute.
   --tw-skew-y: 0;
   --tw-scale-x: 1;
   --tw-scale-y: 1;
-  --tw-pan-x: ;
-  --tw-pan-y: ;
-  --tw-pinch-zoom: ;
+  --tw-pan-x:  ;
+  --tw-pan-y:  ;
+  --tw-pinch-zoom:  ;
   --tw-scroll-snap-strictness: proximity;
-  --tw-ordinal: ;
-  --tw-slashed-zero: ;
-  --tw-numeric-figure: ;
-  --tw-numeric-spacing: ;
-  --tw-numeric-fraction: ;
-  --tw-ring-inset: ;
+  --tw-ordinal:  ;
+  --tw-slashed-zero:  ;
+  --tw-numeric-figure:  ;
+  --tw-numeric-spacing:  ;
+  --tw-numeric-fraction:  ;
+  --tw-ring-inset:  ;
   --tw-ring-offset-width: 0px;
   --tw-ring-offset-color: #fff;
   --tw-ring-color: rgb(59 130 246 / 0.5);
@@ -401,24 +326,24 @@ Ensure the default browser behavior of the `hidden` attribute.
   --tw-ring-shadow: 0 0 #0000;
   --tw-shadow: 0 0 #0000;
   --tw-shadow-colored: 0 0 #0000;
-  --tw-blur: ;
-  --tw-brightness: ;
-  --tw-contrast: ;
-  --tw-grayscale: ;
-  --tw-hue-rotate: ;
-  --tw-invert: ;
-  --tw-saturate: ;
-  --tw-sepia: ;
-  --tw-drop-shadow: ;
-  --tw-backdrop-blur: ;
-  --tw-backdrop-brightness: ;
-  --tw-backdrop-contrast: ;
-  --tw-backdrop-grayscale: ;
-  --tw-backdrop-hue-rotate: ;
-  --tw-backdrop-invert: ;
-  --tw-backdrop-opacity: ;
-  --tw-backdrop-saturate: ;
-  --tw-backdrop-sepia: ;
+  --tw-blur:  ;
+  --tw-brightness:  ;
+  --tw-contrast:  ;
+  --tw-grayscale:  ;
+  --tw-hue-rotate:  ;
+  --tw-invert:  ;
+  --tw-saturate:  ;
+  --tw-sepia:  ;
+  --tw-drop-shadow:  ;
+  --tw-backdrop-blur:  ;
+  --tw-backdrop-brightness:  ;
+  --tw-backdrop-contrast:  ;
+  --tw-backdrop-grayscale:  ;
+  --tw-backdrop-hue-rotate:  ;
+  --tw-backdrop-invert:  ;
+  --tw-backdrop-opacity:  ;
+  --tw-backdrop-saturate:  ;
+  --tw-backdrop-sepia:  ;
 }
 
 
@@ -426,374 +351,292 @@ Ensure the default browser behavior of the `hidden` attribute.
 #kaitaku-feedback-ui .kt-fixed {
   position: fixed;
 }
-
 #kaitaku-feedback-ui .kt-bottom-5 {
   bottom: 1.25rem;
 }
-
 #kaitaku-feedback-ui .kt-right-5 {
   right: 1.25rem;
 }
-
 #kaitaku-feedback-ui .kt-z-50 {
   z-index: 50;
 }
-
 #kaitaku-feedback-ui .kt-mb-2 {
   margin-bottom: 0.5rem;
 }
-
 #kaitaku-feedback-ui .kt-mr-2 {
   margin-right: 0.5rem;
 }
-
 #kaitaku-feedback-ui .kt-mt-2 {
   margin-top: 0.5rem;
 }
-
 #kaitaku-feedback-ui .kt-mb-4 {
   margin-bottom: 1rem;
 }
-
 #kaitaku-feedback-ui .kt-inline {
   display: inline;
 }
-
 #kaitaku-feedback-ui .kt-flex {
   display: flex;
 }
-
 #kaitaku-feedback-ui .kt-grid {
   display: grid;
 }
-
 #kaitaku-feedback-ui .kt-h-\[460px\] {
   height: 460px;
 }
-
 #kaitaku-feedback-ui .kt-h-3 {
   height: 0.75rem;
 }
-
 #kaitaku-feedback-ui .kt-h-full {
   height: 100%;
 }
-
 #kaitaku-feedback-ui .kt-h-4 {
   height: 1rem;
 }
-
 #kaitaku-feedback-ui .kt-h-24 {
   height: 6rem;
 }
-
 #kaitaku-feedback-ui .kt-max-h-\[400px\] {
   max-height: 400px;
 }
-
 #kaitaku-feedback-ui .kt-max-h-\[290px\] {
   max-height: 290px;
 }
-
 #kaitaku-feedback-ui .kt-w-\[400px\] {
   width: 400px;
 }
-
 #kaitaku-feedback-ui .kt-w-full {
   width: 100%;
 }
-
 #kaitaku-feedback-ui .kt-w-3 {
   width: 0.75rem;
 }
-
 #kaitaku-feedback-ui .kt-w-4 {
   width: 1rem;
 }
-
 #kaitaku-feedback-ui .kt-w-5\/6 {
   width: 83.333333%;
 }
-
 #kaitaku-feedback-ui .kt-w-24 {
   width: 6rem;
 }
-
 #kaitaku-feedback-ui .kt-max-w-\[400px\] {
   max-width: 400px;
 }
-
 @keyframes kt-spin {
   to {
     transform: rotate(360deg);
   }
 }
-
 #kaitaku-feedback-ui .kt-animate-spin {
   animation: kt-spin 1s linear infinite;
 }
-
 #kaitaku-feedback-ui .kt-cursor-pointer {
   cursor: pointer;
 }
-
 #kaitaku-feedback-ui .kt-grid-flow-col {
   grid-auto-flow: column;
 }
-
 #kaitaku-feedback-ui .kt-flex-col {
   flex-direction: column;
 }
-
 #kaitaku-feedback-ui .kt-items-center {
   align-items: center;
 }
-
 #kaitaku-feedback-ui .kt-justify-end {
   justify-content: flex-end;
 }
-
 #kaitaku-feedback-ui .kt-justify-center {
   justify-content: center;
 }
-
 #kaitaku-feedback-ui .kt-gap-2 {
   gap: 0.5rem;
 }
-
 #kaitaku-feedback-ui .kt-gap-0 {
   gap: 0px;
 }
-
-#kaitaku-feedback-ui .kt-space-y-4> :not([hidden])~ :not([hidden]) {
+#kaitaku-feedback-ui .kt-space-y-4 > :not([hidden]) ~ :not([hidden]) {
   --tw-space-y-reverse: 0;
   margin-top: calc(1rem * calc(1 - var(--tw-space-y-reverse)));
   margin-bottom: calc(1rem * var(--tw-space-y-reverse));
 }
-
 #kaitaku-feedback-ui .kt-overflow-x-auto {
   overflow-x: auto;
 }
-
 #kaitaku-feedback-ui .kt-overflow-y-auto {
   overflow-y: auto;
 }
-
 #kaitaku-feedback-ui .kt-whitespace-nowrap {
   white-space: nowrap;
 }
-
 #kaitaku-feedback-ui .kt-rounded-md {
   border-radius: 0.375rem;
 }
-
 #kaitaku-feedback-ui .kt-rounded-xl {
   border-radius: 0.75rem;
 }
-
 #kaitaku-feedback-ui .kt-rounded-lg {
   border-radius: 0.5rem;
 }
-
 #kaitaku-feedback-ui .kt-rounded-2xl {
   border-radius: 1rem;
 }
-
 #kaitaku-feedback-ui .kt-rounded-full {
   border-radius: 9999px;
 }
-
 #kaitaku-feedback-ui .kt-border-2 {
   border-width: 2px;
 }
-
 #kaitaku-feedback-ui .kt-border-b-2 {
   border-bottom-width: 2px;
 }
-
 #kaitaku-feedback-ui .kt-border-blue-500 {
   --tw-border-opacity: 1;
   border-color: rgb(59 130 246 / var(--tw-border-opacity));
 }
-
 #kaitaku-feedback-ui .kt-border-slate-100 {
   --tw-border-opacity: 1;
   border-color: rgb(241 245 249 / var(--tw-border-opacity));
 }
-
 #kaitaku-feedback-ui .kt-border-white {
   --tw-border-opacity: 1;
   border-color: rgb(255 255 255 / var(--tw-border-opacity));
 }
-
 #kaitaku-feedback-ui .kt-bg-blue-500 {
   --tw-bg-opacity: 1;
   background-color: rgb(59 130 246 / var(--tw-bg-opacity));
 }
-
 #kaitaku-feedback-ui .kt-bg-gray-300 {
   --tw-bg-opacity: 1;
   background-color: rgb(209 213 219 / var(--tw-bg-opacity));
 }
-
 #kaitaku-feedback-ui .kt-bg-blue-100 {
   --tw-bg-opacity: 1;
   background-color: rgb(219 234 254 / var(--tw-bg-opacity));
 }
-
 #kaitaku-feedback-ui .kt-bg-white {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
-
 #kaitaku-feedback-ui .kt-bg-blue-600 {
   --tw-bg-opacity: 1;
   background-color: rgb(37 99 235 / var(--tw-bg-opacity));
 }
-
 #kaitaku-feedback-ui .kt-fill-blue-500 {
   fill: #3b82f6;
 }
-
 #kaitaku-feedback-ui .kt-p-2 {
   padding: 0.5rem;
 }
-
 #kaitaku-feedback-ui .kt-p-12 {
   padding: 3rem;
 }
-
 #kaitaku-feedback-ui .kt-px-4 {
   padding-left: 1rem;
   padding-right: 1rem;
 }
-
 #kaitaku-feedback-ui .kt-py-2 {
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
 }
-
 #kaitaku-feedback-ui .kt-py-1 {
   padding-top: 0.25rem;
   padding-bottom: 0.25rem;
 }
-
 #kaitaku-feedback-ui .kt-py-4 {
   padding-top: 1rem;
   padding-bottom: 1rem;
 }
-
 #kaitaku-feedback-ui .kt-px-2 {
   padding-left: 0.5rem;
   padding-right: 0.5rem;
 }
-
 #kaitaku-feedback-ui .kt-pl-2 {
   padding-left: 0.5rem;
 }
-
 #kaitaku-feedback-ui .kt-pt-2 {
   padding-top: 0.5rem;
 }
-
 #kaitaku-feedback-ui .kt-text-left {
   text-align: left;
 }
-
 #kaitaku-feedback-ui .kt-text-center {
   text-align: center;
 }
-
 #kaitaku-feedback-ui .kt-align-baseline {
   vertical-align: baseline;
 }
-
 #kaitaku-feedback-ui .kt-text-base {
   font-size: 1rem;
   line-height: 1.5rem;
 }
-
 #kaitaku-feedback-ui .kt-text-sm {
   font-size: 0.875rem;
   line-height: 1.25rem;
 }
-
 #kaitaku-feedback-ui .kt-text-xl {
   font-size: 1.25rem;
   line-height: 1.75rem;
 }
-
 #kaitaku-feedback-ui .kt-font-semibold {
   font-weight: 600;
 }
-
 #kaitaku-feedback-ui .kt-font-medium {
   font-weight: 500;
 }
-
 #kaitaku-feedback-ui .kt-text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
-
 #kaitaku-feedback-ui .kt-text-gray-400 {
   --tw-text-opacity: 1;
   color: rgb(156 163 175 / var(--tw-text-opacity));
 }
-
 #kaitaku-feedback-ui .kt-text-gray-900 {
   --tw-text-opacity: 1;
   color: rgb(17 24 39 / var(--tw-text-opacity));
 }
-
 #kaitaku-feedback-ui .kt-text-gray-600 {
   --tw-text-opacity: 1;
   color: rgb(75 85 99 / var(--tw-text-opacity));
 }
-
 #kaitaku-feedback-ui .kt-text-red-600 {
   --tw-text-opacity: 1;
   color: rgb(220 38 38 / var(--tw-text-opacity));
 }
-
 #kaitaku-feedback-ui .kt-text-gray-200 {
   --tw-text-opacity: 1;
   color: rgb(229 231 235 / var(--tw-text-opacity));
 }
-
 #kaitaku-feedback-ui .kt-text-green-600 {
   --tw-text-opacity: 1;
   color: rgb(22 163 74 / var(--tw-text-opacity));
 }
-
 #kaitaku-feedback-ui .kt-text-gray-500 {
   --tw-text-opacity: 1;
   color: rgb(107 114 128 / var(--tw-text-opacity));
 }
-
 #kaitaku-feedback-ui .kt-text-gray-300 {
   --tw-text-opacity: 1;
   color: rgb(209 213 219 / var(--tw-text-opacity));
 }
-
 #kaitaku-feedback-ui .kt-shadow-md {
   --tw-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
   --tw-shadow-colored: 0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
-
 #kaitaku-feedback-ui .kt-drop-shadow-md {
   --tw-drop-shadow: drop-shadow(0 4px 3px rgb(0 0 0 / 0.07)) drop-shadow(0 2px 2px rgb(0 0 0 / 0.06));
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
 
 #kaitaku-feedback-ui {
-  position: fixed;
-  right: 1.25rem;
-  bottom: 1.25rem;
-  width: 400px;
-  height: 460px;
-  z-index: 50;
+    position: fixed;
+    right: 1.25rem;
+    bottom: 1.25rem;
+    width: 400px;
+    height: 460px;
+    z-index: 50;
 }
 
 #kaitaku-feedback-ui .hover\:kt-rounded:hover {
@@ -825,19 +668,12 @@ Ensure the default browser behavior of the `hidden` attribute.
     --tw-text-opacity: 1;
     color: rgb(239 68 68 / var(--tw-text-opacity));
   }
-
   #kaitaku-feedback-ui .dark\:kt-text-gray-600 {
     --tw-text-opacity: 1;
     color: rgb(75 85 99 / var(--tw-text-opacity));
   }
-
   #kaitaku-feedback-ui .dark\:kt-text-green-500 {
     --tw-text-opacity: 1;
     color: rgb(34 197 94 / var(--tw-text-opacity));
   }
 }
-
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInRhaWx3aW5kLWlucHV0LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQSIsImZpbGUiOiJnZW5lcmF0ZWQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiQHRhaWx3aW5kIGJhc2U7XG5AdGFpbHdpbmQgY29tcG9uZW50cztcbkB0YWlsd2luZCB1dGlsaXRpZXM7Il19 */
