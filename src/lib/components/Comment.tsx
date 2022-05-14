@@ -1,5 +1,5 @@
 import { useMemo } from "react"
-import { useUpdateComment } from "../hooks/useUpdateComment"
+import { useUpvoteComment } from "../hooks/useUpvoteComment"
 import { Comment as IComment, KaitakuProps } from "../types/types"
 import chevron from './../icons/chevron.svg'
 import { Spinner } from "./Spinner"
@@ -15,15 +15,15 @@ export const Comment = (props: Props) => {
     } = props
 
     const {
-        mutate: updateComment,
+        mutate: upvoteComment,
         isLoading,
-    } = useUpdateComment()
+    } = useUpvoteComment()
 
     const onUpvote = (c: IComment) => {
         if (isLoading) {
             return
         }
-        updateComment({
+        upvoteComment({
             ...props,
             categoryId: c.categoryId,
             commentId: c.id,

@@ -1,6 +1,6 @@
 
 import { useMutation, } from "react-query";
-import { updateComment } from "../api/updateComment";
+import { upvoteComment } from "../api/upvoteComment";
 import { HTTPError, } from "../types/error";
 import { Comment } from "../types/types";
 import { queryClient } from "../util/queryClient";
@@ -14,10 +14,10 @@ interface UpvoteCommentArg {
     userId: string
 }
 
-export const useUpdateComment = () => {
+export const useUpvoteComment = () => {
     return useMutation<Comment | null, HTTPError, UpvoteCommentArg, unknown>(
         (arg: UpvoteCommentArg): Promise<Comment | null> =>
-            updateComment(arg.projectId, arg.categoryId, arg.commentId, arg.userId, arg.upvoted, arg.token),
+            upvoteComment(arg.projectId, arg.categoryId, arg.commentId, arg.userId, arg.upvoted, arg.token),
         {
             onSuccess: async (_, arg: UpvoteCommentArg) => {
                 queryClient.invalidateQueries([
