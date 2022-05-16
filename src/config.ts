@@ -1,4 +1,4 @@
 
 export const config = {
-    BASE_API_URI: "https://api.kaitakuhq.net/v1",
+    BASE_API_URI: "https://api.kaitakuhq.com/v1",
 }
