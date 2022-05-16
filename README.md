@@ -20,7 +20,7 @@ You can integrate this into your application as a module or a global varibale.
 To implement this as a module, run:
 
 ```sh
-npm install kaitaku-web-sdk
+npm install @kaitaku/kaitaku-web-sdk 
 ```
 
 ### Setup a container
