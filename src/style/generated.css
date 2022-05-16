@@ -196,6 +196,7 @@ Remove the inheritance of text transform in Edge and Firefox.
 #kaitaku-feedback-ui [type='button'],
 #kaitaku-feedback-ui [type='reset'],
 #kaitaku-feedback-ui [type='submit'] {
+<<<<<<< HEAD
   <<<<<<< HEAD -webkit-appearance: button;
   /* 1 */
   background-color: transparent;
@@ -217,6 +218,11 @@ Remove the inheritance of text transform in Edge and Firefox.
   background-image: none;
   /* 2 */
   >>>>>>>3d3b705 (wq:Xremove preflight from tailwind css)=======>>>>>>>15c1b99 (update default to staging)>>>>>>>97d66d6 (update default to staging)
+=======
+  -webkit-appearance: button; /* 1 */
+  background-color: transparent; /* 2 */
+  background-image: none; /* 2 */
+>>>>>>> 84f2eee (update endpoint to prod)
 }
 
 /*
@@ -253,6 +259,7 @@ Correct the cursor style of increment and decrement buttons in Safari.
 2. Correct the outline style in Safari.
 */
 #kaitaku-feedback-ui [type='search'] {
+<<<<<<< HEAD
   <<<<<<< HEAD -webkit-appearance: textfield;
   /* 1 */
   outline-offset: -2px;
@@ -270,6 +277,10 @@ Correct the cursor style of increment and decrement buttons in Safari.
   outline-offset: -2px;
   /* 2 */
   >>>>>>>15c1b99 (update default to staging)>>>>>>>97d66d6 (update default to staging)
+=======
+  -webkit-appearance: textfield; /* 1 */
+  outline-offset: -2px; /* 2 */
+>>>>>>> 84f2eee (update endpoint to prod)
 }
 
 /*
@@ -494,8 +505,12 @@ Ensure the default browser behavior of the `hidden` attribute.
 #kaitaku-feedback-ui .kt-grid {
   display: grid;
 }
+<<<<<<< HEAD
 
 <<<<<<< HEAD=======<<<<<<< HEAD>>>>>>>b5b72cf (update default to staging) #kaitaku-feedback-ui .kt-h-\[460px\] {
+=======
+#kaitaku-feedback-ui .kt-h-\[460px\] {
+>>>>>>> 84f2eee (update endpoint to prod)
   height: 460px;
 }
 
@@ -863,6 +878,7 @@ Ensure the default browser behavior of the `hidden` attribute.
     --tw-text-opacity: 1;
     color: rgb(34 197 94 / var(--tw-text-opacity));
   }
+<<<<<<< HEAD
 }
 
 <<<<<<< HEAD @tailwind base;
@@ -1510,3 +1526,6 @@ Ensure the default browser behavior of the `hidden` attribute.
           @tailwind utilities;
           /*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInRhaWx3aW5kLWlucHV0LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQSIsImZpbGUiOiJnZW5lcmF0ZWQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiQHRhaWx3aW5kIGJhc2U7XG5AdGFpbHdpbmQgY29tcG9uZW50cztcbkB0YWlsd2luZCB1dGlsaXRpZXM7Il19 */
           >>>>>>>15c1b99 (update default to staging)>>>>>>>97d66d6 (update default to staging)>>>>>>>b5b72cf (update default to staging)
+=======
+}
+>>>>>>> 84f2eee (update endpoint to prod)
