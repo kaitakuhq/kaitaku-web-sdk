@@ -196,12 +196,9 @@ Remove the inheritance of text transform in Edge and Firefox.
 #kaitaku-feedback-ui [type='button'],
 #kaitaku-feedback-ui [type='reset'],
 #kaitaku-feedback-ui [type='submit'] {
-  -webkit-appearance: button;
-  /* 1 */
-  background-color: transparent;
-  /* 2 */
-  background-image: none;
-  /* 2 */
+  -webkit-appearance: button; /* 1 */
+  background-color: transparent; /* 2 */
+  background-image: none; /* 2 */
 }
 
 /*
@@ -238,10 +235,8 @@ Correct the cursor style of increment and decrement buttons in Safari.
 2. Correct the outline style in Safari.
 */
 #kaitaku-feedback-ui [type='search'] {
-  -webkit-appearance: textfield;
-  /* 1 */
-  outline-offset: -2px;
-  /* 2 */
+  -webkit-appearance: textfield; /* 1 */
+  outline-offset: -2px; /* 2 */
 }
 
 /*
@@ -486,15 +481,12 @@ Ensure the default browser behavior of the `hidden` attribute.
 #kaitaku-feedback-ui .kt-h-24 {
   height: 6rem;
 }
-
 #kaitaku-feedback-ui .kt-max-h-\[400px\] {
   max-height: 400px;
 }
-
 #kaitaku-feedback-ui .kt-max-h-\[290px\] {
   max-height: 290px;
 }
-
 #kaitaku-feedback-ui .kt-w-\[400px\] {
   width: 400px;
 }
@@ -518,7 +510,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 #kaitaku-feedback-ui .kt-w-24 {
   width: 6rem;
 }
-
 #kaitaku-feedback-ui .kt-max-w-\[400px\] {
   max-width: 400px;
 }
@@ -565,7 +556,7 @@ Ensure the default browser behavior of the `hidden` attribute.
   gap: 0px;
 }
 
-#kaitaku-feedback-ui .kt-space-y-4> :not([hidden])~ :not([hidden]) {
+#kaitaku-feedback-ui .kt-space-y-4 > :not([hidden]) ~ :not([hidden]) {
   --tw-space-y-reverse: 0;
   margin-top: calc(1rem * calc(1 - var(--tw-space-y-reverse)));
   margin-bottom: calc(1rem * var(--tw-space-y-reverse));
