@@ -8,6 +8,7 @@ import { WrappedQueryClient } from '../../testutil/clientProvider';
 import { kaitakuProps } from '../../testutil/testdata';
 import { MainComponent, } from './Main';
 import { KaitakuProps } from '../types';
+import userEvent from '@testing-library/user-event';
 
 
 describe('<Main />', () => {
@@ -71,4 +72,17 @@ describe('<Main />', () => {
         })
     })
 
+    it('should show attribution', async () => {
+        renderPage()
+
+        const element = screen.getByTestId('kaitaku-ui-trigger-button')
+        expect(element).not.toBeNull()
+        userEvent.click(element)
+
+        await waitFor(() => {
+            const element = screen.getByTestId('kaitaku-attribution-container')
+            expect(element).not.toBeNull()
+            expect(element.textContent).toEqual('Crafted by Kaitaku')
+        })
+    })
 })
