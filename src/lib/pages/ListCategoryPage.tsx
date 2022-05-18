@@ -169,10 +169,13 @@ export const ListCategoryPage = (
 
                             </div>
 
-                            <Button
-                                onClick={onAddFeedback}
-                                title={'Add New Feedback'}
-                                type={'primary'} />
+                            <div
+                                className="kt-m-2">
+                                <Button
+                                    onClick={onAddFeedback}
+                                    title={'Add New Feedback'}
+                                    type={'primary'} />
+                            </div>
                         </>
                     )
             }

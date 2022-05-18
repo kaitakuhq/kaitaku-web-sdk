@@ -38,6 +38,10 @@ export const MainComponent = (props: KaitakuProps) => {
 
     const [showAddFeedback, setShowAddFeedback] = useState<Category | null>(null)
 
+    const navigateToKaitaku = () => {
+        window.open('https://www.kaitakuhq.com', '_blank')
+    }
+
     return (
         <QueryClientProvider client={queryClient}>
             <div id="kaitaku-feedback-container" style={{ height: '100%' }}>
@@ -71,6 +75,14 @@ export const MainComponent = (props: KaitakuProps) => {
                                             {...props} />
                                     )
                                 }
+
+                                <div
+                                    className="kt-m-4 kt-text-slate-400 kt-cursor-pointer kt-text-center"
+                                    data-testid="kaitaku-attribution-container"
+                                    onClick={navigateToKaitaku}
+                                    id="kaitaku-attribution-container">
+                                    Crafted by Kaitaku
+                                </div>
                             </div>
                         </div>
                     )
