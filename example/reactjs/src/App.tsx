@@ -5,9 +5,8 @@ import { Kaitaku } from '@kaitaku/kaitaku-web-sdk'
 
 function App() {
   useEffect(() => {
-    const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiWmdOS0NBalVIbERoak85bms1bW4iLCJjcmVhdGVkX2F0IjoiMjAyMi0wNC0xN1QxODo1MTo1Ni41OTI2OCswOTowMCJ9.lL2kmWdoAhCfZOe1r7yl-7k4n-5EVdcwj6QhuB-tEek'
-    const projectId = 'mVhuSeRl9UXjJevV0sTy'
-    const user1 = 'user1';
+    const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiYU5LckpnQTl1dUxCU1hKaDBtMXoiLCJjcmVhdGVkX2F0IjoiMjAyMi0wNS0xN1QxNTo1MzoyOS40NDc0Mzk3MVoifQ.seR3Ci8I4c-rM_2oCRtPUVactFxG9fHS295ONPb8rkY';
+    const projectId = 'iEXZKgkiZsVsTlrsEtpN'
 
     const kaitaku = new Kaitaku({
       onError: (err: any) => {
@@ -15,7 +14,6 @@ function App() {
       },
       projectId: projectId,
       token: token,
-      userId: user1,
     });
   }, [])
 
