@@ -17,8 +17,14 @@ export class Kaitaku {
   // Developer can specify the project configuration and callbacks
   props: KaitakuProps
 
-  constructor(props: KaitakuProps, node?: HTMLElement) {
-    this.props = { ...props }
+  constructor(
+    props: Omit<KaitakuProps, 'userId'>, // userId is defined later in the init
+    node?: HTMLElement,
+  ) {
+    this.props = {
+      userId: '', // empty if not specified
+      ...props,
+    }
 
     this.node = this.findRenderingNode(node)
 
@@ -49,11 +55,7 @@ export class Kaitaku {
 
     cookies.set(
       this.kaitakuUserIdCookieKey,
-      uid,
-      {
-        domain: this.props.domain,
-        path: '/',
-      });
+      uid);
 
     return uid
   }
