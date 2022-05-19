@@ -1,7 +1,9 @@
 import { ReactChild, ReactFragment, ReactPortal } from "react";
 import { KaitakuError } from "./error";
+import { Cookie } from 'universal-cookie'
 
 export interface KaitakuProps {
+    domain?: string
     onError: (error: KaitakuError) => void
     projectId: string
     showFeedbackUI?: boolean
