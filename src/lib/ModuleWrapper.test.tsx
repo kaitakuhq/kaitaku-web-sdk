@@ -44,37 +44,56 @@ describe('<ModuleWrapper />', () => {
     });
   })
 
-  it('should generate user ID if not set', async () => {
-    await act(() => {
-      createClass({
-        userId: undefined,
-      });
-    });
+  describe('userid', () => {
 
-    await waitFor(() => {
-      expect(!!(MainComponent as jest.Mock).mock.calls[0][0].userId).toBe(true)
-      expect(!!(MainComponent as jest.Mock).mock.calls[0][0].userId).not.toBe('user-1234')
+    it('generate user ID if not set', async () => {
+      await act(() => {
+        createClass({
+          userId: undefined,
+        });
+      });
+
+      await waitFor(() => {
+        expect(!!(MainComponent as jest.Mock).mock.calls[0][0].userId).toBe(true)
+        expect(!!(MainComponent as jest.Mock).mock.calls[0][0].userId).not.toBe('user-1234')
+      })
+
+      // check set 
+      const cookie = new Cookies()
+      expect(cookie.get('kaitakuUserId')).toBe((MainComponent as jest.Mock).mock.calls[0][0].userId)
     })
 
-    // check set 
-    const cookie = new Cookies()
-    expect(cookie.get('kaitakuUserId')).toBe((MainComponent as jest.Mock).mock.calls[0][0].userId)
-  })
+    it('generate user ID from cookie if set', async () => {
 
-  it('should generate user ID from cookie if set', async () => {
+      const cookies = new Cookies()
+      cookies.set('kaitakuUserId', 'xyzuserid1')
 
-    const cookies = new Cookies()
-    cookies.set('kaitakuUserId', 'xyzuserid1')
-
-    await act(() => {
-      createClass({
-        userId: undefined,
+      await act(() => {
+        createClass({
+          userId: undefined,
+        });
       });
-    });
 
-    await waitFor(() => {
-      expect((MainComponent as jest.Mock).mock.calls[0][0].userId).toBe('xyzuserid1')
-      expect(!!(MainComponent as jest.Mock).mock.calls[0][0].userId).not.toBe('user-1234')
+      await waitFor(() => {
+        expect((MainComponent as jest.Mock).mock.calls[0][0].userId).toBe('xyzuserid1')
+        expect(!!(MainComponent as jest.Mock).mock.calls[0][0].userId).not.toBe('user-1234')
+      })
+    })
+
+    it('use a specified user ID if set', async () => {
+
+      const cookies = new Cookies()
+      cookies.set('kaitakuUserId', 'xyzuserid1')
+
+      await act(() => {
+        createClass({
+          userId: 'user-1234',
+        });
+      });
+
+      await waitFor(() => {
+        expect((MainComponent as jest.Mock).mock.calls[0][0].userId).toBe('user-1234')
+      })
     })
   })
 })
