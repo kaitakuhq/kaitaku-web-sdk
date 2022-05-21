@@ -145,6 +145,7 @@ export const ListCategoryPage = (
                 {
                     filteredCategoryObj.list.map((c) => (
                         <Category
+                            key={c.id}
                             category={c}
                             onCategoryClick={onCategoryClick}
                             selectedCategory={selectedCategory} />
