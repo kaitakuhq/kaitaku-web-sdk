@@ -46,15 +46,25 @@ export const ListCategoryPage = (
     }
 
     const {
-        data: comments,
+        data: listCommentsData,
         error: listCommentError,
         isLoading: isLoadingComments,
+        status: listCommentsStatus,
     } = useListComment({
         categoryId: selectedCategory?.id || '',
         projectId: props.projectId,
         token: props.token,
         userId: props.userId,
     })
+
+    const comments = useMemo(() => {
+        if (listCommentsStatus !== 'success') {
+            return []
+        }
+        return listCommentsData.slice().sort((a, b) => {
+            return b.votes - a.votes
+        })
+    }, [listCommentsStatus])
 
     // did mount
     useEffect(() => {
