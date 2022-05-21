@@ -20,12 +20,17 @@ export const useListComment = (arg: ListCommentArg) => {
         arg.userId,]
 
     return useQuery<unknown, HTTPError, Comment[]>(cacheKey,
-        () => listComment(
-            arg.projectId,
-            arg.categoryId,
-            arg.userId,
-            arg.token,
-        ), {
+        async () => {
+            const comments = await listComment(
+                arg.projectId,
+                arg.categoryId,
+                arg.userId,
+                arg.token,
+            )
+            return (comments || []).slice().sort((a, b) => {
+                return b.votes - a.votes
+            })
+        }, {
         retry: false
     })
 }

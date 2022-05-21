@@ -320,4 +320,53 @@ describe('<ListCategoryPage />', () => {
     })
   })
 
+  it('should show comments even after component unmount/mount',
+    async () => {
+      (getProject as jest.Mock).mockImplementation(() => {
+        return new Promise(resolve => {
+          resolve({
+            category: categoryData,
+          })
+        })
+      });
+
+      (listComment as jest.Mock).mockImplementation(() => {
+        return new Promise(resolve => {
+          resolve([
+            {
+              ...commentData[0],
+              votes: 3,
+            },
+            {
+              ...commentData[1],
+              votes: 10,
+            },
+          ])
+        })
+      });
+
+      const { unmount } = renderPage({
+        projectId: 'proj-56789132'
+      })
+
+      await waitFor(() => {
+        const elements = screen.getAllByTestId('comment-text')
+        expect(elements.length).toEqual(2)
+        expect(elements[0].textContent).toEqual(commentData[1].comment)
+        expect(elements[1].textContent).toEqual(commentData[0].comment)
+        unmount()
+      })
+
+      renderPage({
+        projectId: 'proj-56789132'
+      })
+
+      await waitFor(() => {
+        const elements = screen.getAllByTestId('comment-text')
+        expect(elements.length).toEqual(2)
+        expect(elements[0].textContent).toEqual(commentData[1].comment)
+        expect(elements[1].textContent).toEqual(commentData[0].comment)
+      })
+    })
+
 })
