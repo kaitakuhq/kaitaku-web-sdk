@@ -83,7 +83,6 @@ export class Kaitaku {
       // create a place to render this element
       var elem = document.createElement('div');
       elem.id = this.feedbackUIElementId
-      elem.className = 'kt-fixed kt-bottom-5 kt-right-5 kt-w-[400px] kt-h-[460px] kt-z-50'
       document.body.appendChild(elem);
       fmtNode = elem
     }

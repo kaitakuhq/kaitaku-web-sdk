@@ -10,7 +10,10 @@
     position: fixed;
     right: 1.25rem;
     bottom: 1.25rem;
+    z-index: 2147483647;
+}
+
+#kaitaku-feedback-container {
     width: 400px;
-    height: 512px;
-    z-index: 50;
+    height: 512px
 }
